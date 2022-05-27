@@ -1,12 +1,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showingSettings = false
+    @AppStorage("lifeExpectancy") private var lifeExpectancy = 72
+    @AppStorage("birthday") private var birthday = Date.now
+
     var body: some View {
         NavigationView {
-            if let lifeProgress = LifeProgress(dob: "1969/6/9") {
+            if let lifeProgress = LifeProgress(birthday: birthday, lifeExpectancy: lifeExpectancy) {
                 LifeCalendarView(progress: lifeProgress)
-                    .navigationTitle("Life Progress: \(lifeProgress.formattedProgress)%")
                     .padding()
+                    .navigationTitle("Life Progress: \(lifeProgress.formattedProgress)%")
+                    .navigationBarItems(trailing:
+                        Button(action: {
+                            showingSettings.toggle()
+                        }) {
+                            Image(systemName: "gearshape").imageScale(.large)
+                        })
+                    .sheet(isPresented: $showingSettings) {
+                        Settings()
+                    }
             }
         }
     }
@@ -20,7 +33,7 @@ struct LifeCalendarView: View {
             let cellSize = size.width / CGFloat(LifeProgress.totalWeeksInAYear)
             let cellPadding = cellSize / 8
 
-            for rowIndex in 0 ..< LifeProgress.averageLifeExpectancy {
+            for rowIndex in 0 ..< progress.lifeExpectancy {
                 for colIndex in 0 ..< LifeProgress.totalWeeksInAYear {
                     let cellPath =
                         Path(CGRect(
@@ -50,22 +63,15 @@ struct LifeCalendarView: View {
 
 struct LifeProgress {
     static let totalWeeksInAYear = 52
-    static let averageLifeExpectancy = 72
 
     var age: Int
     var weekOfYear: Int
+    var lifeExpectancy: Int
 
-    init?(dob: String) {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withFullDate]
-
-        guard let dobDate = formatter.date(from: dob) else {
-            return nil
-        }
-
+    init?(birthday: Date, lifeExpectancy: Int) {
         let ageComponents = Calendar.current.dateComponents(
             [.year, .weekOfYear],
-            from: dobDate,
+            from: birthday,
             to: Date.now
         )
 
@@ -77,13 +83,14 @@ struct LifeProgress {
 
         self.age = age
         self.weekOfYear = weekOfYear
+        self.lifeExpectancy = lifeExpectancy
     }
 
     var formattedProgress: String {
         let realAge = Double(age) + Double(weekOfYear) /
             Double(LifeProgress.totalWeeksInAYear)
         let progress = realAge /
-            Double(LifeProgress.averageLifeExpectancy) * 100
+            Double(lifeExpectancy) * 100
         let formattedProgress = String(format: "%.1f", progress)
 
         return formattedProgress
