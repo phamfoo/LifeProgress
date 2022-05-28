@@ -3,22 +3,39 @@ import SwiftUI
 struct Settings: View {
     @AppStorage("birthday") private var birthday = Date.now
     @AppStorage("lifeExpectancy") private var lifeExpectancy = 72
+    var onDone: () -> Void
 
     var body: some View {
-        Form {
-            DatePicker(selection: $birthday, displayedComponents: .date) {
-                Text("Your Birthday").bold()
-            }
+        NavigationView {
+            List {
+                DatePicker(selection: $birthday, displayedComponents: .date) {
+                    Text("Your Birthday").bold()
+                }
 
-            Section {
-                Text("Life Expectancy")
-                    .bold()
-                Picker("Life Expectancy", selection: $lifeExpectancy) {
-                    ForEach(28..<128) { age in
-                        Text("\(age) years").tag(age)
+                Section {
+                    VStack(alignment: .leading) {
+                        Text("Life Expectancy")
+                            .bold()
+                        Picker("Life Expectancy", selection: $lifeExpectancy) {
+                            ForEach(28 ..< 128) { age in
+                                Text("\(age) years").tag(age)
+                            }
+                        }
+                        .pickerStyle(.wheel)
                     }
                 }
-                .pickerStyle(.wheel)
+            }
+            .navigationTitle("Settings")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Done") {
+                        // TODO: Saving these values this way is kinda weird
+                        lifeExpectancy = lifeExpectancy
+                        birthday = birthday
+                        onDone()
+                    }
+                }
             }
         }
     }
@@ -26,11 +43,11 @@ struct Settings: View {
 
 extension Date: RawRepresentable {
     private static let formatter = ISO8601DateFormatter()
-    
+
     public var rawValue: String {
         Date.formatter.string(from: self)
     }
-    
+
     public init?(rawValue: String) {
         self = Date.formatter.date(from: rawValue) ?? Date()
     }
@@ -38,6 +55,6 @@ extension Date: RawRepresentable {
 
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {
-        Settings()
+        Settings(onDone: {})
     }
 }
