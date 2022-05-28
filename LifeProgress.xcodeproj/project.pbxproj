@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		840AA58C283FB91F000FB75E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840AA58B283FB91F000FB75E /* Settings.swift */; };
+		840BC43D28420CA500AC1CE8 /* LifeProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC43C28420CA500AC1CE8 /* LifeProgress.swift */; };
+		840BC44128420CE000AC1CE8 /* CalendarNotAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC44028420CE000AC1CE8 /* CalendarNotAvailable.swift */; };
+		840BC44328420D0100AC1CE8 /* LifeCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC44228420D0100AC1CE8 /* LifeCalendar.swift */; };
 		84B25468283BBDC200CD542E /* LifeProgressApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B25467283BBDC200CD542E /* LifeProgressApp.swift */; };
 		84B2546A283BBDC200CD542E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B25469283BBDC200CD542E /* ContentView.swift */; };
 		84B2546C283BBDC300CD542E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B2546B283BBDC300CD542E /* Assets.xcassets */; };
@@ -16,6 +19,9 @@
 
 /* Begin PBXFileReference section */
 		840AA58B283FB91F000FB75E /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		840BC43C28420CA500AC1CE8 /* LifeProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeProgress.swift; sourceTree = "<group>"; };
+		840BC44028420CE000AC1CE8 /* CalendarNotAvailable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarNotAvailable.swift; sourceTree = "<group>"; };
+		840BC44228420D0100AC1CE8 /* LifeCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCalendar.swift; sourceTree = "<group>"; };
 		84B25464283BBDC200CD542E /* LifeProgress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeProgress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B25467283BBDC200CD542E /* LifeProgressApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeProgressApp.swift; sourceTree = "<group>"; };
 		84B25469283BBDC200CD542E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +61,9 @@
 			children = (
 				84B25467283BBDC200CD542E /* LifeProgressApp.swift */,
 				84B25469283BBDC200CD542E /* ContentView.swift */,
+				840BC44228420D0100AC1CE8 /* LifeCalendar.swift */,
+				840BC44028420CE000AC1CE8 /* CalendarNotAvailable.swift */,
+				840BC43C28420CA500AC1CE8 /* LifeProgress.swift */,
 				840AA58B283FB91F000FB75E /* Settings.swift */,
 				84B2546B283BBDC300CD542E /* Assets.xcassets */,
 				84B2546D283BBDC300CD542E /* Preview Content */,
@@ -140,8 +149,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840BC44128420CE000AC1CE8 /* CalendarNotAvailable.swift in Sources */,
 				840AA58C283FB91F000FB75E /* Settings.swift in Sources */,
 				84B2546A283BBDC200CD542E /* ContentView.swift in Sources */,
+				840BC44328420D0100AC1CE8 /* LifeCalendar.swift in Sources */,
+				840BC43D28420CA500AC1CE8 /* LifeProgress.swift in Sources */,
 				84B25468283BBDC200CD542E /* LifeProgressApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
