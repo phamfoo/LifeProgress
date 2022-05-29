@@ -39,6 +39,7 @@ struct LifeCalendar: View {
                     }
                 }
                 .opacity(displayMode == .life ? 1 : 0)
+                .animation(.easeInOut(duration: 1), value: displayMode)
 
                 // Draw the current year with views
                 let yearModeColumnCount = 6
@@ -61,16 +62,15 @@ struct LifeCalendar: View {
                             x: CGFloat(column) * currentYearCellSize,
                             y: CGFloat(row) * currentYearCellSize
                         )
+                        .animation(.ripple(index: weekIndex), value: displayMode)
                 }
             }
             .frame(height: cellSize * CGFloat(progress.lifeExpectancy))
             .onTapGesture {
-                withAnimation(.easeInOut(duration: 1)) {
-                    if displayMode == .currentYear {
-                        displayMode = .life
-                    } else {
-                        displayMode = .currentYear
-                    }
+                if displayMode == .currentYear {
+                    displayMode = .life
+                } else {
+                    displayMode = .currentYear
                 }
             }
         }
@@ -79,6 +79,13 @@ struct LifeCalendar: View {
     enum DisplayMode {
         case currentYear
         case life
+    }
+}
+
+extension Animation {
+    static func ripple(index: Int) -> Animation {
+        Animation.easeInOut(duration: 1)
+            .delay(0.015 * Double(index))
     }
 }
 
