@@ -9,13 +9,14 @@ struct Settings: View {
         NavigationView {
             List {
                 DatePicker(selection: $birthday, displayedComponents: .date) {
-                    Text("Your Birthday").bold()
+                    Text("Your Birthday")
+                        .font(.headline)
                 }
 
                 Section {
                     VStack(alignment: .leading) {
                         Text("Life Expectancy")
-                            .bold()
+                            .font(.headline)
                         Picker("Life Expectancy", selection: $lifeExpectancy) {
                             ForEach(28 ..< 128) { age in
                                 Text("\(age) years").tag(age)
