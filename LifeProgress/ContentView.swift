@@ -1,29 +1,30 @@
+import Defaults
 import SwiftUI
 
 struct ContentView: View {
     @State private var showingProfile = false
-    @AppStorage("lifeExpectancy") private var lifeExpectancy: Int?
-    @AppStorage("birthday") private var birthday: Date?
+    @Default(.lifeExpectancy) var lifeExpectancy
+    @Default(.birthday) var birthday
 
     var body: some View {
         NavigationView {
-            if let birthday = birthday, let lifeExpectancy = lifeExpectancy {
-                if let lifeProgress = LifeProgress(
-                    birthday: birthday,
-                    lifeExpectancy: lifeExpectancy
-                ) {
-                    LifeCalendar(progress: lifeProgress)
-                        .padding()
-                        .navigationTitle(
-                            "Life Progress: \(lifeProgress.formattedProgress)%"
-                        )
-                        .navigationBarItems(trailing:
-                            Button(action: {
-                                showingProfile.toggle()
-                            }) {
-                                Image(systemName: "square.and.pencil").imageScale(.large)
-                            })
-                }
+            if let birthday = birthday,
+               let lifeProgress = LifeProgress(
+                   birthday: birthday,
+                   lifeExpectancy: lifeExpectancy
+               )
+            {
+                LifeCalendar(progress: lifeProgress)
+                    .padding()
+                    .navigationTitle(
+                        "Life Progress: \(lifeProgress.formattedProgress)%"
+                    )
+                    .navigationBarItems(trailing:
+                        Button(action: {
+                            showingProfile.toggle()
+                        }) {
+                            Image(systemName: "square.and.pencil").imageScale(.large)
+                        })
             } else {
                 CalendarNotAvailable(onSetupRequest: {
                     showingProfile = true

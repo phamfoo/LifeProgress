@@ -15,6 +15,7 @@
 		84B2546A283BBDC200CD542E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B25469283BBDC200CD542E /* ContentView.swift */; };
 		84B2546C283BBDC300CD542E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B2546B283BBDC300CD542E /* Assets.xcassets */; };
 		84B2546F283BBDC300CD542E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B2546E283BBDC300CD542E /* Preview Assets.xcassets */; };
+		84F5020A2844686C00FFD597 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 84F502092844686C00FFD597 /* Defaults */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F5020A2844686C00FFD597 /* Defaults in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +97,9 @@
 			dependencies = (
 			);
 			name = LifeProgress;
+			packageProductDependencies = (
+				84F502092844686C00FFD597 /* Defaults */,
+			);
 			productName = LifeProgress;
 			productReference = 84B25464283BBDC200CD542E /* LifeProgress.app */;
 			productType = "com.apple.product-type.application";
@@ -123,6 +128,9 @@
 				Base,
 			);
 			mainGroup = 84B2545B283BBDC200CD542E;
+			packageReferences = (
+				84F502082844686C00FFD597 /* XCRemoteSwiftPackageReference "Defaults" */,
+			);
 			productRefGroup = 84B25465283BBDC200CD542E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -355,6 +363,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		84F502082844686C00FFD597 /* XCRemoteSwiftPackageReference "Defaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Defaults";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		84F502092844686C00FFD597 /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84F502082844686C00FFD597 /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 84B2545C283BBDC200CD542E /* Project object */;
 }

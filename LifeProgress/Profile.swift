@@ -1,8 +1,10 @@
 import SwiftUI
+import Defaults
 
 struct Profile: View {
-    @AppStorage("birthday") private var birthday = Date.now
-    @AppStorage("lifeExpectancy") private var lifeExpectancy = 72
+    @State var birthday = Defaults[.birthday] ?? Date.now
+    @State var lifeExpectancy = Defaults[.lifeExpectancy]
+    
     var onDone: () -> Void
 
     var body: some View {
@@ -31,9 +33,8 @@ struct Profile: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
-                        // TODO: Saving these values this way is kinda weird
-                        lifeExpectancy = lifeExpectancy
-                        birthday = birthday
+                        Defaults[.birthday] = birthday
+                        Defaults[.lifeExpectancy] = lifeExpectancy
                         onDone()
                     }
                 }
@@ -42,17 +43,11 @@ struct Profile: View {
     }
 }
 
-extension Date: RawRepresentable {
-    private static let formatter = ISO8601DateFormatter()
-
-    public var rawValue: String {
-        Date.formatter.string(from: self)
-    }
-
-    public init?(rawValue: String) {
-        self = Date.formatter.date(from: rawValue) ?? Date()
-    }
+extension Defaults.Keys {
+    static let lifeExpectancy = Key<Int>("lifeExpectancy", default: 72)
+    static let birthday = Key<Date?>("birthday")
 }
+
 
 struct Profile_Previews: PreviewProvider {
     static var previews: some View {
