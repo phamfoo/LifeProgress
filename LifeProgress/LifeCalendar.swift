@@ -39,7 +39,7 @@ struct LifeCalendar: View {
                     }
                 }
                 .opacity(displayMode == .life ? 1 : 0)
-                .animation(.easeInOut(duration: 1), value: displayMode)
+                .animation(.easeInOut(duration: 0.54), value: displayMode)
 
                 // Draw the current year with views
                 let yearModeColumnCount = 6
@@ -48,9 +48,11 @@ struct LifeCalendar: View {
                 let currentYearCellPadding = currentYearCellSize / 8
 
                 ForEach(0 ..< LifeProgress.totalWeeksInAYear, id: \.self) { weekIndex in
-                    let row = displayMode == .currentYear ? weekIndex / yearModeColumnCount :
+                    let row = displayMode == .currentYear ? weekIndex /
+                        yearModeColumnCount :
                         progress.age
-                    let column = displayMode == .currentYear ? weekIndex % yearModeColumnCount :
+                    let column = displayMode == .currentYear ? weekIndex %
+                        yearModeColumnCount :
                         weekIndex
 
                     Rectangle()
@@ -62,7 +64,11 @@ struct LifeCalendar: View {
                             x: CGFloat(column) * currentYearCellSize,
                             y: CGFloat(row) * currentYearCellSize
                         )
-                        .animation(.ripple(index: weekIndex), value: displayMode)
+                        .animation(
+                            Animation.easeInOut(duration: 0.34)
+                                .delay(0.015 * Double(weekIndex)),
+                            value: displayMode
+                        )
                 }
             }
             .frame(height: cellSize * CGFloat(progress.lifeExpectancy))
@@ -79,13 +85,6 @@ struct LifeCalendar: View {
     enum DisplayMode {
         case currentYear
         case life
-    }
-}
-
-extension Animation {
-    static func ripple(index: Int) -> Animation {
-        Animation.easeInOut(duration: 1)
-            .delay(0.015 * Double(index))
     }
 }
 
