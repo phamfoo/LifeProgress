@@ -1,10 +1,11 @@
 import SwiftUI
 import Defaults
+import WidgetKit
 
 struct Profile: View {
     @State var birthday = Defaults[.birthday] ?? Date.now
     @State var lifeExpectancy = Defaults[.lifeExpectancy]
-    
+
     var onDone: () -> Void
 
     var body: some View {
@@ -35,17 +36,14 @@ struct Profile: View {
                     Button("Done") {
                         Defaults[.birthday] = birthday
                         Defaults[.lifeExpectancy] = lifeExpectancy
+                        
+                        WidgetCenter.shared.reloadAllTimelines()
                         onDone()
                     }
                 }
             }
         }
     }
-}
-
-extension Defaults.Keys {
-    static let lifeExpectancy = Key<Int>("lifeExpectancy", default: 72)
-    static let birthday = Key<Date?>("birthday")
 }
 
 
