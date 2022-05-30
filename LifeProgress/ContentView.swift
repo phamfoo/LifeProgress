@@ -3,6 +3,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var showingProfile = false
+    
     @Default(.lifeExpectancy) var lifeExpectancy
     @Default(.birthday) var birthday
 
@@ -26,14 +27,7 @@ struct ContentView: View {
                             Image(systemName: "square.and.pencil").imageScale(.large)
                         })
             } else {
-                CalendarNotAvailable(onSetupRequest: {
-                    showingProfile = true
-                })
-            }
-        }
-        .onAppear {
-            if birthday == nil {
-                showingProfile = true
+                Welcome()
             }
         }
         .sheet(isPresented: $showingProfile) {

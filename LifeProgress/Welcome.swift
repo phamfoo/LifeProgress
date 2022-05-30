@@ -1,35 +1,39 @@
 import SwiftUI
 
-struct CalendarNotAvailable: View {
-    var onSetupRequest: () -> Void
-
+struct Welcome: View {
+    @State private var showingProfile = false
+    
     var body: some View {
         VStack {
             Image(systemName: "calendar")
                 .foregroundColor(.accentColor)
                 .font(.system(size: 100))
 
-            // TODO: Replace these texts with better texts
-            Text("Sed ut perspiciatis")
+            Text("Welcome!")
                 .font(.title)
                 .padding([.top])
 
-            Text("Ut enim ad minima veniam, quis nostrum exercitationem")
+            Text("Before we continue, let's set up your profile")
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
 
-            Button("Set up now") {
-                onSetupRequest()
+            Button("I'm ready") {
+                showingProfile = true
             }
             .padding([.top])
             .buttonStyle(.bordered)
         }
         .padding()
+        .sheet(isPresented: $showingProfile) {
+            Profile(onDone: {
+                showingProfile = false
+            })
+        }
     }
 }
 
-struct CalendarNotAvailable_Previews: PreviewProvider {
+struct Welcome_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarNotAvailable(onSetupRequest: {})
+        Welcome()
     }
 }
