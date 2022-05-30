@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showingSettings = false
+    @State private var showingProfile = false
     @AppStorage("lifeExpectancy") private var lifeExpectancy: Int?
     @AppStorage("birthday") private var birthday: Date?
 
@@ -19,25 +19,25 @@ struct ContentView: View {
                         )
                         .navigationBarItems(trailing:
                             Button(action: {
-                                showingSettings.toggle()
+                                showingProfile.toggle()
                             }) {
-                                Image(systemName: "gearshape").imageScale(.large)
+                                Image(systemName: "square.and.pencil").imageScale(.large)
                             })
                 }
             } else {
                 CalendarNotAvailable(onSetupRequest: {
-                    showingSettings = true
+                    showingProfile = true
                 })
             }
         }
         .onAppear {
             if birthday == nil {
-                showingSettings = true
+                showingProfile = true
             }
         }
-        .sheet(isPresented: $showingSettings) {
-            Settings(onDone: {
-                showingSettings = false
+        .sheet(isPresented: $showingProfile) {
+            Profile(onDone: {
+                showingProfile = false
             })
         }
     }

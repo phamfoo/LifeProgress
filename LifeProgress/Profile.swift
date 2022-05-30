@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct Settings: View {
+struct Profile: View {
     @AppStorage("birthday") private var birthday = Date.now
     @AppStorage("lifeExpectancy") private var lifeExpectancy = 72
     var onDone: () -> Void
@@ -26,7 +26,7 @@ struct Settings: View {
                     }
                 }
             }
-            .navigationTitle("Settings")
+            .navigationTitle("Profile")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -54,8 +54,8 @@ extension Date: RawRepresentable {
     }
 }
 
-struct Settings_Previews: PreviewProvider {
+struct Profile_Previews: PreviewProvider {
     static var previews: some View {
-        Settings(onDone: {})
+        Profile(onDone: {})
     }
 }
