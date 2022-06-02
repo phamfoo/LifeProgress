@@ -11,19 +11,19 @@
 		840BC43D28420CA500AC1CE8 /* LifeProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC43C28420CA500AC1CE8 /* LifeProgress.swift */; };
 		840BC44128420CE000AC1CE8 /* Welcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC44028420CE000AC1CE8 /* Welcome.swift */; };
 		840BC44328420D0100AC1CE8 /* LifeCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC44228420D0100AC1CE8 /* LifeCalendar.swift */; };
-		8455565F28449DDB0062CD5F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8455565E28449DDB0062CD5F /* WidgetKit.framework */; };
-		8455566128449DDB0062CD5F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8455566028449DDB0062CD5F /* SwiftUI.framework */; };
-		8455566428449DDB0062CD5F /* CalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455566328449DDB0062CD5F /* CalendarWidget.swift */; };
-		8455566728449DDD0062CD5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8455566628449DDD0062CD5F /* Assets.xcassets */; };
-		8455566928449DDD0062CD5F /* CalendarWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8455566528449DDB0062CD5F /* CalendarWidget.intentdefinition */; };
-		8455566A28449DDD0062CD5F /* CalendarWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8455566528449DDB0062CD5F /* CalendarWidget.intentdefinition */; };
-		8455566D28449DDD0062CD5F /* CalendarWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8455565C28449DDB0062CD5F /* CalendarWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		845556792844A5710062CD5F /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845556782844A5710062CD5F /* UserProfile.swift */; };
-		845E0DF92844CB5D00E58416 /* LifeCalendarWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0DF82844CB5D00E58416 /* LifeCalendarWidgetView.swift */; };
 		848EEB5E2844A6BA00B5AD78 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 848EEB5D2844A6BA00B5AD78 /* Defaults */; };
-		848EEB602844A7B500B5AD78 /* LifeProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC43C28420CA500AC1CE8 /* LifeProgress.swift */; };
-		848EEB642844A92700B5AD78 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845556782844A5710062CD5F /* UserProfile.swift */; };
-		848EEB662844BD7B00B5AD78 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 848EEB652844BD7B00B5AD78 /* Defaults */; };
+		8499BDAA2846520B005A31D5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8455565E28449DDB0062CD5F /* WidgetKit.framework */; };
+		8499BDAB2846520B005A31D5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8455566028449DDB0062CD5F /* SwiftUI.framework */; };
+		8499BDAE2846520B005A31D5 /* LifeProgressWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499BDAD2846520B005A31D5 /* LifeProgressWidget.swift */; };
+		8499BDB02846520C005A31D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8499BDAF2846520C005A31D5 /* Assets.xcassets */; };
+		8499BDB42846520C005A31D5 /* LifeProgressWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8499BDA92846520B005A31D5 /* LifeProgressWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8499BDB9284652B5005A31D5 /* LifeProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC43C28420CA500AC1CE8 /* LifeProgress.swift */; };
+		8499BDBA284652BE005A31D5 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845556782844A5710062CD5F /* UserProfile.swift */; };
+		8499BDBD284652DF005A31D5 /* LifeProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499BDBB284652D4005A31D5 /* LifeProgressView.swift */; };
+		8499BDBF28465352005A31D5 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 8499BDBE28465352005A31D5 /* Defaults */; };
+		84A0235B2847A915007770ED /* AgeGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0235A2847A915007770ED /* AgeGroup.swift */; };
+		84A9314A284857BF00BE1D0D /* AgeGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0235A2847A915007770ED /* AgeGroup.swift */; };
 		84B25468283BBDC200CD542E /* LifeProgressApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B25467283BBDC200CD542E /* LifeProgressApp.swift */; };
 		84B2546A283BBDC200CD542E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B25469283BBDC200CD542E /* ContentView.swift */; };
 		84B2546C283BBDC300CD542E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B2546B283BBDC300CD542E /* Assets.xcassets */; };
@@ -32,12 +32,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8455566B28449DDD0062CD5F /* PBXContainerItemProxy */ = {
+		8499BDB22846520C005A31D5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84B2545C283BBDC200CD542E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8455565B28449DDB0062CD5F;
-			remoteInfo = CalendarWidgetExtension;
+			remoteGlobalIDString = 8499BDA82846520B005A31D5;
+			remoteInfo = LifeProgressWidgetExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -48,7 +48,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				8455566D28449DDD0062CD5F /* CalendarWidgetExtension.appex in Embed App Extensions */,
+				8499BDB42846520C005A31D5 /* LifeProgressWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,17 +60,17 @@
 		840BC43C28420CA500AC1CE8 /* LifeProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeProgress.swift; sourceTree = "<group>"; };
 		840BC44028420CE000AC1CE8 /* Welcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome.swift; sourceTree = "<group>"; };
 		840BC44228420D0100AC1CE8 /* LifeCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCalendar.swift; sourceTree = "<group>"; };
-		8455565C28449DDB0062CD5F /* CalendarWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CalendarWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8455565E28449DDB0062CD5F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		8455566028449DDB0062CD5F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		8455566328449DDB0062CD5F /* CalendarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWidget.swift; sourceTree = "<group>"; };
-		8455566528449DDB0062CD5F /* CalendarWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = CalendarWidget.intentdefinition; sourceTree = "<group>"; };
-		8455566628449DDD0062CD5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8455566828449DDD0062CD5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		845556762844A0540062CD5F /* LifeProgress.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LifeProgress.entitlements; sourceTree = "<group>"; };
-		845556772844A10E0062CD5F /* CalendarWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalendarWidgetExtension.entitlements; sourceTree = "<group>"; };
 		845556782844A5710062CD5F /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
-		845E0DF82844CB5D00E58416 /* LifeCalendarWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCalendarWidgetView.swift; sourceTree = "<group>"; };
+		8499BDA92846520B005A31D5 /* LifeProgressWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LifeProgressWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8499BDAD2846520B005A31D5 /* LifeProgressWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeProgressWidget.swift; sourceTree = "<group>"; };
+		8499BDAF2846520C005A31D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8499BDB12846520C005A31D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8499BDB8284652A2005A31D5 /* LifeProgressWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LifeProgressWidgetExtension.entitlements; sourceTree = "<group>"; };
+		8499BDBB284652D4005A31D5 /* LifeProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeProgressView.swift; sourceTree = "<group>"; };
+		84A0235A2847A915007770ED /* AgeGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeGroup.swift; sourceTree = "<group>"; };
 		84B25464283BBDC200CD542E /* LifeProgress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeProgress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B25467283BBDC200CD542E /* LifeProgressApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeProgressApp.swift; sourceTree = "<group>"; };
 		84B25469283BBDC200CD542E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,13 +79,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8455565928449DDB0062CD5F /* Frameworks */ = {
+		8499BDA62846520B005A31D5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				848EEB662844BD7B00B5AD78 /* Defaults in Frameworks */,
-				8455566128449DDB0062CD5F /* SwiftUI.framework in Frameworks */,
-				8455565F28449DDB0062CD5F /* WidgetKit.framework in Frameworks */,
+				8499BDBF28465352005A31D5 /* Defaults in Frameworks */,
+				8499BDAB2846520B005A31D5 /* SwiftUI.framework in Frameworks */,
+				8499BDAA2846520B005A31D5 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,24 +110,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8455566228449DDB0062CD5F /* CalendarWidget */ = {
+		8499BDAC2846520B005A31D5 /* LifeProgressWidget */ = {
 			isa = PBXGroup;
 			children = (
-				8455566328449DDB0062CD5F /* CalendarWidget.swift */,
-				845E0DF82844CB5D00E58416 /* LifeCalendarWidgetView.swift */,
-				8455566528449DDB0062CD5F /* CalendarWidget.intentdefinition */,
-				8455566628449DDD0062CD5F /* Assets.xcassets */,
-				8455566828449DDD0062CD5F /* Info.plist */,
+				8499BDB8284652A2005A31D5 /* LifeProgressWidgetExtension.entitlements */,
+				8499BDBB284652D4005A31D5 /* LifeProgressView.swift */,
+				8499BDAD2846520B005A31D5 /* LifeProgressWidget.swift */,
+				8499BDAF2846520C005A31D5 /* Assets.xcassets */,
+				8499BDB12846520C005A31D5 /* Info.plist */,
 			);
-			path = CalendarWidget;
+			path = LifeProgressWidget;
 			sourceTree = "<group>";
 		};
 		84B2545B283BBDC200CD542E = {
 			isa = PBXGroup;
 			children = (
-				845556772844A10E0062CD5F /* CalendarWidgetExtension.entitlements */,
 				84B25466283BBDC200CD542E /* LifeProgress */,
-				8455566228449DDB0062CD5F /* CalendarWidget */,
+				8499BDAC2846520B005A31D5 /* LifeProgressWidget */,
 				8455565D28449DDB0062CD5F /* Frameworks */,
 				84B25465283BBDC200CD542E /* Products */,
 			);
@@ -137,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				84B25464283BBDC200CD542E /* LifeProgress.app */,
-				8455565C28449DDB0062CD5F /* CalendarWidgetExtension.appex */,
+				8499BDA92846520B005A31D5 /* LifeProgressWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,6 +152,7 @@
 				840BC43C28420CA500AC1CE8 /* LifeProgress.swift */,
 				840AA58B283FB91F000FB75E /* Profile.swift */,
 				845556782844A5710062CD5F /* UserProfile.swift */,
+				84A0235A2847A915007770ED /* AgeGroup.swift */,
 				84B2546B283BBDC300CD542E /* Assets.xcassets */,
 				84B2546D283BBDC300CD542E /* Preview Content */,
 			);
@@ -170,24 +170,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8455565B28449DDB0062CD5F /* CalendarWidgetExtension */ = {
+		8499BDA82846520B005A31D5 /* LifeProgressWidgetExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8455567128449DDD0062CD5F /* Build configuration list for PBXNativeTarget "CalendarWidgetExtension" */;
+			buildConfigurationList = 8499BDB72846520C005A31D5 /* Build configuration list for PBXNativeTarget "LifeProgressWidgetExtension" */;
 			buildPhases = (
-				8455565828449DDB0062CD5F /* Sources */,
-				8455565928449DDB0062CD5F /* Frameworks */,
-				8455565A28449DDB0062CD5F /* Resources */,
+				8499BDA52846520B005A31D5 /* Sources */,
+				8499BDA62846520B005A31D5 /* Frameworks */,
+				8499BDA72846520B005A31D5 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CalendarWidgetExtension;
+			name = LifeProgressWidgetExtension;
 			packageProductDependencies = (
-				848EEB652844BD7B00B5AD78 /* Defaults */,
+				8499BDBE28465352005A31D5 /* Defaults */,
 			);
-			productName = CalendarWidgetExtension;
-			productReference = 8455565C28449DDB0062CD5F /* CalendarWidgetExtension.appex */;
+			productName = LifeProgressWidgetExtension;
+			productReference = 8499BDA92846520B005A31D5 /* LifeProgressWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		84B25463283BBDC200CD542E /* LifeProgress */ = {
@@ -202,7 +202,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				8455566C28449DDD0062CD5F /* PBXTargetDependency */,
+				8499BDB32846520C005A31D5 /* PBXTargetDependency */,
 			);
 			name = LifeProgress;
 			packageProductDependencies = (
@@ -223,7 +223,7 @@
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					8455565B28449DDB0062CD5F = {
+					8499BDA82846520B005A31D5 = {
 						CreatedOnToolsVersion = 13.4;
 					};
 					84B25463283BBDC200CD542E = {
@@ -242,24 +242,23 @@
 			mainGroup = 84B2545B283BBDC200CD542E;
 			packageReferences = (
 				84F502082844686C00FFD597 /* XCRemoteSwiftPackageReference "Defaults" */,
-				848EEB5C2844A6BA00B5AD78 /* XCRemoteSwiftPackageReference "Defaults" */,
 			);
 			productRefGroup = 84B25465283BBDC200CD542E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				84B25463283BBDC200CD542E /* LifeProgress */,
-				8455565B28449DDB0062CD5F /* CalendarWidgetExtension */,
+				8499BDA82846520B005A31D5 /* LifeProgressWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8455565A28449DDB0062CD5F /* Resources */ = {
+		8499BDA72846520B005A31D5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8455566728449DDD0062CD5F /* Assets.xcassets in Resources */,
+				8499BDB02846520C005A31D5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,15 +274,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8455565828449DDB0062CD5F /* Sources */ = {
+		8499BDA52846520B005A31D5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				848EEB642844A92700B5AD78 /* UserProfile.swift in Sources */,
-				8455566928449DDD0062CD5F /* CalendarWidget.intentdefinition in Sources */,
-				8455566428449DDB0062CD5F /* CalendarWidget.swift in Sources */,
-				845E0DF92844CB5D00E58416 /* LifeCalendarWidgetView.swift in Sources */,
-				848EEB602844A7B500B5AD78 /* LifeProgress.swift in Sources */,
+				84A9314A284857BF00BE1D0D /* AgeGroup.swift in Sources */,
+				8499BDB9284652B5005A31D5 /* LifeProgress.swift in Sources */,
+				8499BDBD284652DF005A31D5 /* LifeProgressView.swift in Sources */,
+				8499BDAE2846520B005A31D5 /* LifeProgressWidget.swift in Sources */,
+				8499BDBA284652BE005A31D5 /* UserProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,37 +293,37 @@
 				840BC44128420CE000AC1CE8 /* Welcome.swift in Sources */,
 				840AA58C283FB91F000FB75E /* Profile.swift in Sources */,
 				84B2546A283BBDC200CD542E /* ContentView.swift in Sources */,
+				84A0235B2847A915007770ED /* AgeGroup.swift in Sources */,
 				840BC44328420D0100AC1CE8 /* LifeCalendar.swift in Sources */,
 				845556792844A5710062CD5F /* UserProfile.swift in Sources */,
 				840BC43D28420CA500AC1CE8 /* LifeProgress.swift in Sources */,
 				84B25468283BBDC200CD542E /* LifeProgressApp.swift in Sources */,
-				8455566A28449DDD0062CD5F /* CalendarWidget.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8455566C28449DDD0062CD5F /* PBXTargetDependency */ = {
+		8499BDB32846520C005A31D5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8455565B28449DDB0062CD5F /* CalendarWidgetExtension */;
-			targetProxy = 8455566B28449DDD0062CD5F /* PBXContainerItemProxy */;
+			target = 8499BDA82846520B005A31D5 /* LifeProgressWidgetExtension */;
+			targetProxy = 8499BDB22846520C005A31D5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		8455566F28449DDD0062CD5F /* Debug */ = {
+		8499BDB52846520C005A31D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = CalendarWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = LifeProgressWidget/LifeProgressWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H86LB2Y5NW;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CalendarWidget;
+				INFOPLIST_FILE = LifeProgressWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LifeProgressWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -332,7 +331,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.phaw.LifeProgress.CalendarWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = io.phaw.LifeProgress.LifeProgressWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -341,18 +340,18 @@
 			};
 			name = Debug;
 		};
-		8455567028449DDD0062CD5F /* Release */ = {
+		8499BDB62846520C005A31D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = CalendarWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = LifeProgressWidget/LifeProgressWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H86LB2Y5NW;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CalendarWidget;
+				INFOPLIST_FILE = LifeProgressWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LifeProgressWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -360,7 +359,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.phaw.LifeProgress.CalendarWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = io.phaw.LifeProgress.LifeProgressWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -548,11 +547,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8455567128449DDD0062CD5F /* Build configuration list for PBXNativeTarget "CalendarWidgetExtension" */ = {
+		8499BDB72846520C005A31D5 /* Build configuration list for PBXNativeTarget "LifeProgressWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8455566F28449DDD0062CD5F /* Debug */,
-				8455567028449DDD0062CD5F /* Release */,
+				8499BDB52846520C005A31D5 /* Debug */,
+				8499BDB62846520C005A31D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -578,14 +577,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		848EEB5C2844A6BA00B5AD78 /* XCRemoteSwiftPackageReference "Defaults" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sindresorhus/Defaults";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		84F502082844686C00FFD597 /* XCRemoteSwiftPackageReference "Defaults" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/Defaults";
@@ -602,7 +593,7 @@
 			package = 84F502082844686C00FFD597 /* XCRemoteSwiftPackageReference "Defaults" */;
 			productName = Defaults;
 		};
-		848EEB652844BD7B00B5AD78 /* Defaults */ = {
+		8499BDBE28465352005A31D5 /* Defaults */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 84F502082844686C00FFD597 /* XCRemoteSwiftPackageReference "Defaults" */;
 			productName = Defaults;

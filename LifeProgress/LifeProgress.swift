@@ -25,18 +25,27 @@ struct LifeProgress {
         self.lifeExpectancy = lifeExpectancy
     }
 
-    var currentLifeProgress: Double {
+    var progress: Double {
         let realAge = Double(age) + Double(weekOfYear) /
             Double(LifeProgress.totalWeeksInAYear)
         let progress = realAge /
-            Double(lifeExpectancy) * 100
+            Double(lifeExpectancy)
 
         return progress
     }
 
     var formattedProgress: String {
-        let formattedProgress = String(format: "%.1f", currentLifeProgress)
+        let formattedProgress = String(format: "%.1f", progress * 100)
 
         return formattedProgress
+    }
+    
+    var currentYearProgress: Double {
+        return Double(weekOfYear) / Double(LifeProgress.totalWeeksInAYear)
+    }
+
+    var remainingWeeks: Int {
+        return Int((1 - progress) *
+            Double(LifeProgress.totalWeeksInAYear * lifeExpectancy))
     }
 }
