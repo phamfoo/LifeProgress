@@ -1,5 +1,5 @@
-import Foundation
 import Defaults
+import Foundation
 
 let extensionDefaults = UserDefaults(suiteName: "group.io.phaw.LifeCalendar")!
 

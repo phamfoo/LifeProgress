@@ -1,6 +1,6 @@
 import Foundation
 
-struct LifeProgress {
+struct Life {
     static let totalWeeksInAYear = 52
 
     var age: Int
@@ -27,7 +27,7 @@ struct LifeProgress {
 
     var progress: Double {
         let realAge = Double(age) + Double(weekOfYear) /
-            Double(LifeProgress.totalWeeksInAYear)
+            Double(Life.totalWeeksInAYear)
         let progress = realAge /
             Double(lifeExpectancy)
 
@@ -39,13 +39,25 @@ struct LifeProgress {
 
         return formattedProgress
     }
-    
+
     var currentYearProgress: Double {
-        return Double(weekOfYear) / Double(LifeProgress.totalWeeksInAYear)
+        return Double(weekOfYear) / Double(Life.totalWeeksInAYear)
     }
 
     var remainingWeeks: Int {
         return Int((1 - progress) *
-            Double(LifeProgress.totalWeeksInAYear * lifeExpectancy))
+            Double(Life.totalWeeksInAYear * lifeExpectancy))
+    }
+
+    static var example: Life {
+        // This is meant to be used only in previews
+        // So I think it's okay to force unwrap here
+        let birthday = Calendar.current.date(from: DateComponents(year: 1999, month: 9, day: 9))!
+        let life = Life(
+            birthday: birthday,
+            lifeExpectancy: 72
+        )!
+
+        return life
     }
 }

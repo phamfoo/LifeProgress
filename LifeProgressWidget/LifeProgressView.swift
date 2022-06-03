@@ -7,23 +7,20 @@ struct LifeProgressView: View {
     @Default(.birthday) var birthday
 
     var body: some View {
-        if let birthday = birthday,
-           let lifeProgress = LifeProgress(
-               birthday: birthday,
-               lifeExpectancy: lifeExpectancy
-           )
-        {
+        if let life = getCurrentLife() {
             GeometryReader { geometry in
                 let containterHeight = geometry.size.height
                 let containerWidth = geometry.size.width
-                let progressWithoutCurrentYear = Double(lifeProgress.age) /
-                    Double(lifeProgress.lifeExpectancy)
+                let progressWithoutCurrentYear = Double(life.age) /
+                    Double(life.lifeExpectancy)
 
                 VStack(alignment: .leading, spacing: 0) {
+                    // Draw all age groups first, and then clip out only the top part
+                    // which represents the passed years
                     ZStack(alignment: .topLeading) {
                         ForEach(AgeGroup.allCases, id: \.self) { group in
                             let previousAgeGroupProportion = Double(group.rawValue) /
-                                Double(lifeProgress
+                                Double(life
                                     .lifeExpectancy)
                             
                             AgeGroup.getColorFor(age: group.rawValue)
@@ -37,10 +34,10 @@ struct LifeProgressView: View {
                     .clipped()
 
                     // Current year
-                    AgeGroup.getColorFor(age: lifeProgress.age + 1)
+                    AgeGroup.getColorFor(age: life.age + 1)
                         .frame(
-                            width: lifeProgress.currentYearProgress * containerWidth,
-                            height: containterHeight / Double(lifeProgress.lifeExpectancy)
+                            width: life.currentYearProgress * containerWidth,
+                            height: containterHeight / Double(life.lifeExpectancy)
                         )
 
                     Spacer()
@@ -48,6 +45,19 @@ struct LifeProgressView: View {
                 .background(Color(uiColor: .systemFill))
             }
         }
+    }
+    
+    func getCurrentLife() -> Life? {
+        if let birthday = birthday,
+           let life = Life(
+               birthday: birthday,
+               lifeExpectancy: lifeExpectancy
+           )
+        {
+            return life
+        }
+
+        return nil
     }
 }
 

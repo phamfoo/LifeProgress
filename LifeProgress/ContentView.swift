@@ -3,22 +3,17 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var showingProfile = false
-    
-    @Default(.lifeExpectancy) var lifeExpectancy
-    @Default(.birthday) var birthday
+
+    @Default(.lifeExpectancy) private var lifeExpectancy
+    @Default(.birthday) private var birthday
 
     var body: some View {
-        NavigationView {
-            if let birthday = birthday,
-               let lifeProgress = LifeProgress(
-                   birthday: birthday,
-                   lifeExpectancy: lifeExpectancy
-               )
-            {
-                LifeCalendar(progress: lifeProgress)
+        if let life = getCurrentLife() {
+            NavigationView {
+                LifeCalendar(life: life)
                     .padding()
                     .navigationTitle(
-                        "Life Progress: \(lifeProgress.formattedProgress)%"
+                        "Life Progress: \(life.formattedProgress)%"
                     )
                     .navigationBarItems(trailing:
                         Button(action: {
@@ -26,15 +21,28 @@ struct ContentView: View {
                         }) {
                             Image(systemName: "square.and.pencil").imageScale(.large)
                         })
-            } else {
-                Welcome()
             }
+            .sheet(isPresented: $showingProfile) {
+                Profile(onDone: {
+                    showingProfile = false
+                })
+            }
+        } else {
+            Welcome()
         }
-        .sheet(isPresented: $showingProfile) {
-            Profile(onDone: {
-                showingProfile = false
-            })
+    }
+
+    func getCurrentLife() -> Life? {
+        if let birthday = birthday,
+           let life = Life(
+               birthday: birthday,
+               lifeExpectancy: lifeExpectancy
+           )
+        {
+            return life
         }
+
+        return nil
     }
 }
 
@@ -43,7 +51,7 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             ContentView()
                 .preferredColorScheme(.dark)
-            
+
             ContentView()
                 .preferredColorScheme(.light)
         }

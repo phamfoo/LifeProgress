@@ -1,5 +1,5 @@
-import SwiftUI
 import Defaults
+import SwiftUI
 import WidgetKit
 
 struct Profile: View {
@@ -36,7 +36,7 @@ struct Profile: View {
                     Button("Done") {
                         Defaults[.birthday] = birthday
                         Defaults[.lifeExpectancy] = lifeExpectancy
-                        
+
                         WidgetCenter.shared.reloadAllTimelines()
                         onDone()
                     }
@@ -45,7 +45,6 @@ struct Profile: View {
         }
     }
 }
-
 
 struct Profile_Previews: PreviewProvider {
     static var previews: some View {
