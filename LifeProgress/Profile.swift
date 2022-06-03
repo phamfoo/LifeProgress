@@ -3,7 +3,7 @@ import SwiftUI
 import WidgetKit
 
 struct Profile: View {
-    @State var birthday = Defaults[.birthday] ?? Date.now
+    @State var birthday = Defaults[.birthday] ?? getDefaultBirthday()
     @State var lifeExpectancy = Defaults[.lifeExpectancy]
 
     var onDone: () -> Void
@@ -43,6 +43,17 @@ struct Profile: View {
                 }
             }
         }
+    }
+
+    static func getDefaultBirthday() -> Date {
+        let defaultUserAge = 22
+        let defaultBirthday = Calendar.current.date(
+            byAdding: .year,
+            value: -defaultUserAge,
+            to: Date.now
+        )
+
+        return defaultBirthday ?? Date.now
     }
 }
 
