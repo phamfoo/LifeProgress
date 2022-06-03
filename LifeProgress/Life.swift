@@ -44,9 +44,10 @@ struct Life {
         return Double(weekOfYear) / Double(Life.totalWeeksInAYear)
     }
 
+    // We could use the Calendar API to calculate an accurate value of this,
+    // but I want the value to match the amount of blank squares on the calendar
     var remainingWeeks: Int {
-        return Int((1 - progress) *
-            Double(Life.totalWeeksInAYear * lifeExpectancy))
+        return Life.totalWeeksInAYear - weekOfYear + Life.totalWeeksInAYear * (lifeExpectancy - age - 1)
     }
 
     static var example: Life {
