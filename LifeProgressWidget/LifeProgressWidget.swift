@@ -1,4 +1,3 @@
-import Defaults
 import SwiftUI
 import WidgetKit
 
