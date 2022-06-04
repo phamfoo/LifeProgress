@@ -10,17 +10,20 @@ struct ContentView: View {
     var body: some View {
         if let life = getCurrentLife() {
             NavigationView {
-                LifeCalendar(life: life)
-                    .padding()
-                    .navigationTitle(
-                        "Life Progress: \(life.formattedProgress)%"
-                    )
-                    .navigationBarItems(trailing:
-                        Button(action: {
-                            showingProfile.toggle()
-                        }) {
-                            Image(systemName: "square.and.pencil").imageScale(.large)
-                        })
+                VStack {
+                    LifeCalendar(life: life)
+                    Spacer()
+                }
+                .padding()
+                .navigationTitle(
+                    "Life Progress: \(life.formattedProgress)%"
+                )
+                .navigationBarItems(trailing:
+                    Button(action: {
+                        showingProfile.toggle()
+                    }) {
+                        Image(systemName: "square.and.pencil").imageScale(.large)
+                    })
             }
             .sheet(isPresented: $showingProfile) {
                 Profile(onDone: {

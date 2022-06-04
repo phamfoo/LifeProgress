@@ -48,7 +48,8 @@ struct LifeCalendar: View {
 
                 // Draw the current year with views
                 let currentYearModeColumnCount = 6
-                let currentYearCellSize = displayMode == .currentYear ? containerWidth / Double(currentYearModeColumnCount) : cellSize
+                let currentYearCellSize = displayMode == .currentYear ? containerWidth /
+                    Double(currentYearModeColumnCount) : cellSize
                 let currentYearCellPadding = currentYearCellSize / 12
 
                 ForEach(0 ..< Life.totalWeeksInAYear, id: \.self) { weekIndex in
@@ -85,6 +86,10 @@ struct LifeCalendar: View {
                 }
             }
         }
+        .aspectRatio(
+            Double(Life.totalWeeksInAYear) / Double(life.lifeExpectancy),
+            contentMode: .fit
+        )
     }
 
     enum DisplayMode {
@@ -96,7 +101,7 @@ struct LifeCalendar: View {
 struct LifeCalendar_Previews: PreviewProvider {
     static var previews: some View {
         let life = Life.example
-        
+
         LifeCalendar(life: life)
     }
 }
