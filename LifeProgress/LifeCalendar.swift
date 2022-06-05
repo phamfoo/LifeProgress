@@ -2,89 +2,22 @@ import SwiftUI
 
 struct LifeCalendar: View {
     let life: Life
-    @State private var displayMode = DisplayMode.life
+    @Binding var displayMode: DisplayMode
 
     var body: some View {
-        GeometryReader { geometry in
-            let containerWidth = geometry.size.width
-            let cellSize = containerWidth / Double(Life.totalWeeksInAYear)
-            let cellPadding = cellSize / 12
-            ZStack(alignment: .topLeading) {
-                // Most of the calendar is drawn using canvas,
-                // except for the current year
-                //
-                // We're doing this because when switching from `life` to `year` mode,
-                // the cells from the current year should transition smoothly to
-                // a new grid layout.
-                // This is really easy with view transitions, I'm not sure if it's possible
-                // to do with canvas only.
-                Canvas { context, _ in
-                    for yearIndex in 0 ..< life.lifeExpectancy {
-                        for weekIndex in 0 ..< Life.totalWeeksInAYear {
-                            let cellPath =
-                                Path(CGRect(
-                                    x: Double(weekIndex) * cellSize + cellPadding,
-                                    y: Double(yearIndex) * cellSize + cellPadding,
-                                    width: cellSize - cellPadding * 2,
-                                    height: cellSize - cellPadding * 2
-                                ))
+        ZStack(alignment: .topLeading) {
+            // Most of the calendar is drawn using canvas,
+            // except for the current year
+            //
+            // We're doing this because when switching from `life` to `year` mode,
+            // the cells from the current year should transition smoothly to
+            // a new grid layout.
+            // This is really easy with view transitions, I'm not sure if it's possible
+            // to do with canvas only.
+            calendarWithoutCurrentYear
 
-                            let currentAge = yearIndex + 1
-                            let ageGroupColor = AgeGroup.getColorFor(age: currentAge)
-                            // Ignore the current year
-                            if currentAge < life.age {
-                                context.fill(cellPath, with: .color(ageGroupColor))
-                            } else if currentAge > life.age {
-                                context.fill(
-                                    cellPath,
-                                    with: .color(Color(uiColor: .systemFill))
-                                )
-                            }
-                        }
-                    }
-                }
-                .opacity(displayMode == .life ? 1 : 0)
-                .animation(.easeInOut(duration: 0.54), value: displayMode)
-
-                // Draw the current year with views
-                let currentYearModeColumnCount = 6
-                let currentYearCellSize = displayMode == .currentYear ? containerWidth /
-                    Double(currentYearModeColumnCount) : cellSize
-                let currentYearCellPadding = currentYearCellSize / 12
-
-                ForEach(0 ..< Life.totalWeeksInAYear, id: \.self) { weekIndex in
-                    let row = displayMode == .currentYear ? weekIndex /
-                        currentYearModeColumnCount :
-                        life.age - 1
-                    let column = displayMode == .currentYear ? weekIndex %
-                        currentYearModeColumnCount :
-                        weekIndex
-
-                    Rectangle()
-                        .fill(weekIndex <= life
-                            .weekOfYear ? AgeGroup.getColorFor(age: life.age + 1) :
-                            Color(uiColor: .systemFill))
-                        .padding(currentYearCellPadding)
-                        .frame(width: currentYearCellSize, height: currentYearCellSize)
-                        .offset(
-                            x: Double(column) * currentYearCellSize,
-                            y: Double(row) * currentYearCellSize
-                        )
-                        .animation(
-                            Animation.easeInOut(duration: 0.34)
-                                .delay(0.015 * Double(weekIndex)),
-                            value: displayMode
-                        )
-                }
-            }
-            .frame(height: cellSize * Double(life.lifeExpectancy))
-            .onTapGesture {
-                if displayMode == .currentYear {
-                    displayMode = .life
-                } else {
-                    displayMode = .currentYear
-                }
-            }
+            // Draw the current year with views
+            currentYear
         }
         .aspectRatio(
             Double(Life.totalWeeksInAYear) / Double(life.lifeExpectancy),
@@ -92,16 +25,101 @@ struct LifeCalendar: View {
         )
     }
 
+    var calendarWithoutCurrentYear: some View {
+        Canvas { context, size in
+            let containerWidth = size.width
+            let cellSize = containerWidth / Double(Life.totalWeeksInAYear)
+            let cellPadding = cellSize / 12
+
+            for yearIndex in 0 ..< life.lifeExpectancy {
+                for weekIndex in 0 ..< Life.totalWeeksInAYear {
+                    let cellPath =
+                        Path(CGRect(
+                            x: Double(weekIndex) * cellSize + cellPadding,
+                            y: Double(yearIndex) * cellSize + cellPadding,
+                            width: cellSize - cellPadding * 2,
+                            height: cellSize - cellPadding * 2
+                        ))
+
+                    let currentYear = yearIndex + 1
+                    let ageGroupColor = AgeGroup.getColorFor(age: currentYear)
+
+                    // Ignore the current year (currentYear == life.age)
+                    if currentYear < life.age {
+                        context.fill(cellPath, with: .color(ageGroupColor))
+                    } else if currentYear > life.age {
+                        context.fill(
+                            cellPath,
+                            with: .color(Color(uiColor: .systemFill))
+                        )
+                    }
+                }
+            }
+        }
+        .opacity(displayMode == .life ? 1 : 0)
+        .animation(
+            getAnimation(isActive: displayMode == .life),
+            value: displayMode
+        )
+    }
+
+    var currentYear: some View {
+        GeometryReader { geometry in
+            let containerWidth = geometry.size.width
+            let currentYearModeColumnCount = 6
+
+            let cellSize = displayMode == .currentYear ?
+                containerWidth / Double(currentYearModeColumnCount) :
+                containerWidth / Double(Life.totalWeeksInAYear)
+            let cellPadding = cellSize / 12
+
+            ForEach(0 ..< Life.totalWeeksInAYear, id: \.self) { weekIndex in
+                // TODO: Maybe instead of doing it this way, I could just lay things out normally
+                // and use matchedGeometryEffect and let SwiftUI do its "magic move" thing
+                let rowIndex = displayMode == .currentYear ?
+                    weekIndex / currentYearModeColumnCount :
+                    life.age - 1
+                let columnIndex = displayMode == .currentYear ?
+                    weekIndex % currentYearModeColumnCount :
+                    weekIndex
+
+                Rectangle()
+                    .fill(weekIndex < life.weekOfYear ?
+                        AgeGroup.getColorFor(age: life.age + 1) :
+                        Color(uiColor: .systemFill))
+                    .padding(cellPadding)
+                    .frame(width: cellSize, height: cellSize)
+                    .offset(
+                        x: Double(columnIndex) * cellSize,
+                        y: Double(rowIndex) * cellSize
+                    )
+                    .animation(
+                        getAnimation(isActive: displayMode == .currentYear)
+                            .delay(Double(weekIndex / currentYearModeColumnCount) * 0.04),
+                        value: displayMode
+                    )
+            }
+        }
+    }
+
     enum DisplayMode {
         case currentYear
         case life
+    }
+
+    func getAnimation(isActive: Bool) -> Animation {
+        let animation = Animation.easeInOut(duration: 0.4)
+
+        if isActive {
+            return animation.delay(0.4)
+        }
+
+        return animation
     }
 }
 
 struct LifeCalendar_Previews: PreviewProvider {
     static var previews: some View {
-        let life = Life.example
-
-        LifeCalendar(life: life)
+        LifeCalendar(life: Life.example, displayMode: .constant(.life))
     }
 }

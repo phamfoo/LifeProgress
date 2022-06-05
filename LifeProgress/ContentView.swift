@@ -2,34 +2,12 @@ import Defaults
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showingProfile = false
-
     @Default(.lifeExpectancy) private var lifeExpectancy
     @Default(.birthday) private var birthday
 
     var body: some View {
         if let life = getCurrentLife() {
-            NavigationView {
-                VStack {
-                    LifeCalendar(life: life)
-                    Spacer()
-                }
-                .padding()
-                .navigationTitle(
-                    "Life Progress: \(life.formattedProgress)%"
-                )
-                .navigationBarItems(trailing:
-                    Button(action: {
-                        showingProfile.toggle()
-                    }) {
-                        Image(systemName: "square.and.pencil").imageScale(.large)
-                    })
-            }
-            .sheet(isPresented: $showingProfile) {
-                Profile(onDone: {
-                    showingProfile = false
-                })
-            }
+            Home(life: life)
         } else {
             Welcome()
         }

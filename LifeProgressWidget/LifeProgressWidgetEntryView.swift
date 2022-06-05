@@ -51,7 +51,7 @@ struct SystemMediumWidgetView: View {
     var body: some View {
         HStack(alignment: .center) {
             VStack {
-                Text("\(life.formattedProgress)%")
+                Text("\(life.progressFormattedString)%")
                     .font(.title)
                     .bold()
 
@@ -75,7 +75,7 @@ struct SystemSmallWidgetView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("\(life.formattedProgress)%")
+            Text("\(life.progressFormattedString)%")
                 .font(.headline)
 
             let remainingWeeksText = try! AttributedString(
@@ -97,7 +97,7 @@ struct SystemLargeWidgetView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("\(life.formattedProgress)%")
+            Text("\(life.progressFormattedString)%")
                 .font(.title)
                 .bold()
 

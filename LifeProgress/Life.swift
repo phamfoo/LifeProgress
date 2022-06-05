@@ -34,7 +34,7 @@ struct Life {
         return progress
     }
 
-    var formattedProgress: String {
+    var progressFormattedString: String {
         let formattedProgress = String(format: "%.1f", progress * 100)
 
         return formattedProgress
@@ -42,6 +42,16 @@ struct Life {
 
     var currentYearProgress: Double {
         return Double(weekOfYear) / Double(Life.totalWeeksInAYear)
+    }
+    
+    var currentYearProgressFormattedString: String {
+        let formattedProgress = String(format: "%.1f", currentYearProgress * 100)
+
+        return formattedProgress
+    }
+    
+    var currentYearRemainingWeeks: Int {
+        return Life.totalWeeksInAYear - weekOfYear
     }
 
     // We could use the Calendar API to calculate an accurate value of this,
