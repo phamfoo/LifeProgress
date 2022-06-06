@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct LifeCalendar: View {
+struct LifeProgressView: View {
     let life: Life
     @Binding var displayMode: DisplayMode
 
@@ -120,6 +120,6 @@ struct LifeCalendar: View {
 
 struct LifeCalendar_Previews: PreviewProvider {
     static var previews: some View {
-        LifeCalendar(life: Life.example, displayMode: .constant(.life))
+        LifeProgressView(life: Life.example, displayMode: .constant(.life))
     }
 }

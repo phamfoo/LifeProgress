@@ -1,9 +1,9 @@
 import SwiftUI
 
-struct Home: View {
+struct HomeScreen: View {
     var life: Life
     @State private var showingProfile = false
-    @State private var displayMode: LifeCalendar.DisplayMode = .life
+    @State private var displayMode: LifeProgressView.DisplayMode = .life
 
     var body: some View {
         NavigationView {
@@ -24,7 +24,7 @@ struct Home: View {
                         ))
                 }
 
-                LifeCalendar(life: life, displayMode: $displayMode)
+                LifeProgressView(life: life, displayMode: $displayMode)
                     .onTapGesture {
                         withAnimation {
                             if displayMode == .currentYear {
@@ -45,7 +45,7 @@ struct Home: View {
                 })
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showingProfile) {
-                Profile(onDone: {
+                ProfileScreen(onDone: {
                     showingProfile = false
                 })
             }
@@ -81,8 +81,8 @@ struct Home: View {
     }
 }
 
-struct Home_Previews: PreviewProvider {
+struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        Home(life: Life.example)
+        HomeScreen(life: Life.example)
     }
 }

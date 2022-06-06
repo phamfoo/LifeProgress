@@ -7,9 +7,9 @@ struct ContentView: View {
 
     var body: some View {
         if let life = getCurrentLife() {
-            Home(life: life)
+            HomeScreen(life: life)
         } else {
-            Welcome()
+            WelcomeScreen()
         }
     }
 

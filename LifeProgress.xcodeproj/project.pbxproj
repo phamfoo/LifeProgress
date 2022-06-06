@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		840AA58C283FB91F000FB75E /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840AA58B283FB91F000FB75E /* Profile.swift */; };
+		840AA58C283FB91F000FB75E /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840AA58B283FB91F000FB75E /* ProfileScreen.swift */; };
 		840BC43D28420CA500AC1CE8 /* Life.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC43C28420CA500AC1CE8 /* Life.swift */; };
-		840BC44128420CE000AC1CE8 /* Welcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC44028420CE000AC1CE8 /* Welcome.swift */; };
-		840BC44328420D0100AC1CE8 /* LifeCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC44228420D0100AC1CE8 /* LifeCalendar.swift */; };
-		84401998284B9C450090926D /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84401997284B9C450090926D /* Home.swift */; };
-		845556792844A5710062CD5F /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845556782844A5710062CD5F /* UserProfile.swift */; };
+		840BC44128420CE000AC1CE8 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC44028420CE000AC1CE8 /* WelcomeScreen.swift */; };
+		840BC44328420D0100AC1CE8 /* LifeProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC44228420D0100AC1CE8 /* LifeProgressView.swift */; };
+		84401998284B9C450090926D /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84401997284B9C450090926D /* HomeScreen.swift */; };
+		845556792844A5710062CD5F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845556782844A5710062CD5F /* Profile.swift */; };
 		847685BC2849EE8D0058A2F9 /* LifeProgressWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847685BB2849EE8D0058A2F9 /* LifeProgressWidgetEntryView.swift */; };
 		848EEB5E2844A6BA00B5AD78 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 848EEB5D2844A6BA00B5AD78 /* Defaults */; };
 		8499BDAA2846520B005A31D5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8455565E28449DDB0062CD5F /* WidgetKit.framework */; };
@@ -21,7 +21,7 @@
 		8499BDB02846520C005A31D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8499BDAF2846520C005A31D5 /* Assets.xcassets */; };
 		8499BDB42846520C005A31D5 /* LifeProgressWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8499BDA92846520B005A31D5 /* LifeProgressWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8499BDB9284652B5005A31D5 /* Life.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC43C28420CA500AC1CE8 /* Life.swift */; };
-		8499BDBA284652BE005A31D5 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845556782844A5710062CD5F /* UserProfile.swift */; };
+		8499BDBA284652BE005A31D5 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845556782844A5710062CD5F /* Profile.swift */; };
 		8499BDBD284652DF005A31D5 /* LifeProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499BDBB284652D4005A31D5 /* LifeProgressView.swift */; };
 		8499BDBF28465352005A31D5 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 8499BDBE28465352005A31D5 /* Defaults */; };
 		84A0235B2847A915007770ED /* AgeGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0235A2847A915007770ED /* AgeGroup.swift */; };
@@ -58,15 +58,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		840AA58B283FB91F000FB75E /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		840AA58B283FB91F000FB75E /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		840BC43C28420CA500AC1CE8 /* Life.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Life.swift; sourceTree = "<group>"; };
-		840BC44028420CE000AC1CE8 /* Welcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome.swift; sourceTree = "<group>"; };
-		840BC44228420D0100AC1CE8 /* LifeCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCalendar.swift; sourceTree = "<group>"; };
-		84401997284B9C450090926D /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		840BC44028420CE000AC1CE8 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
+		840BC44228420D0100AC1CE8 /* LifeProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeProgressView.swift; sourceTree = "<group>"; };
+		84401997284B9C450090926D /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		8455565E28449DDB0062CD5F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		8455566028449DDB0062CD5F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		845556762844A0540062CD5F /* LifeProgress.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LifeProgress.entitlements; sourceTree = "<group>"; };
-		845556782844A5710062CD5F /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		845556782844A5710062CD5F /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		847685BB2849EE8D0058A2F9 /* LifeProgressWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeProgressWidgetEntryView.swift; sourceTree = "<group>"; };
 		8499BDA92846520B005A31D5 /* LifeProgressWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LifeProgressWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8499BDAD2846520B005A31D5 /* LifeProgressWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeProgressWidget.swift; sourceTree = "<group>"; };
@@ -105,6 +105,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8422488B284D9B9200A504BD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				845556782844A5710062CD5F /* Profile.swift */,
+				84A0235A2847A915007770ED /* AgeGroup.swift */,
+				840BC43C28420CA500AC1CE8 /* Life.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8452B0E1284D9D1A0077FB1C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84401997284B9C450090926D /* HomeScreen.swift */,
+				840AA58B283FB91F000FB75E /* ProfileScreen.swift */,
+				840BC44028420CE000AC1CE8 /* WelcomeScreen.swift */,
+				840BC44228420D0100AC1CE8 /* LifeProgressView.swift */,
+				84B25469283BBDC200CD542E /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8455565D28449DDB0062CD5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,14 +173,8 @@
 			children = (
 				845556762844A0540062CD5F /* LifeProgress.entitlements */,
 				84B25467283BBDC200CD542E /* LifeProgressApp.swift */,
-				84B25469283BBDC200CD542E /* ContentView.swift */,
-				840BC44228420D0100AC1CE8 /* LifeCalendar.swift */,
-				840BC44028420CE000AC1CE8 /* Welcome.swift */,
-				840BC43C28420CA500AC1CE8 /* Life.swift */,
-				840AA58B283FB91F000FB75E /* Profile.swift */,
-				845556782844A5710062CD5F /* UserProfile.swift */,
-				84A0235A2847A915007770ED /* AgeGroup.swift */,
-				84401997284B9C450090926D /* Home.swift */,
+				8452B0E1284D9D1A0077FB1C /* Views */,
+				8422488B284D9B9200A504BD /* Models */,
 				84B2546B283BBDC300CD542E /* Assets.xcassets */,
 				84B2546D283BBDC300CD542E /* Preview Content */,
 			);
@@ -288,7 +304,7 @@
 				8499BDB9284652B5005A31D5 /* Life.swift in Sources */,
 				8499BDBD284652DF005A31D5 /* LifeProgressView.swift in Sources */,
 				8499BDAE2846520B005A31D5 /* LifeProgressWidget.swift in Sources */,
-				8499BDBA284652BE005A31D5 /* UserProfile.swift in Sources */,
+				8499BDBA284652BE005A31D5 /* Profile.swift in Sources */,
 				847685BC2849EE8D0058A2F9 /* LifeProgressWidgetEntryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,13 +313,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				840BC44128420CE000AC1CE8 /* Welcome.swift in Sources */,
-				840AA58C283FB91F000FB75E /* Profile.swift in Sources */,
+				840BC44128420CE000AC1CE8 /* WelcomeScreen.swift in Sources */,
+				840AA58C283FB91F000FB75E /* ProfileScreen.swift in Sources */,
 				84B2546A283BBDC200CD542E /* ContentView.swift in Sources */,
 				84A0235B2847A915007770ED /* AgeGroup.swift in Sources */,
-				84401998284B9C450090926D /* Home.swift in Sources */,
-				840BC44328420D0100AC1CE8 /* LifeCalendar.swift in Sources */,
-				845556792844A5710062CD5F /* UserProfile.swift in Sources */,
+				84401998284B9C450090926D /* HomeScreen.swift in Sources */,
+				840BC44328420D0100AC1CE8 /* LifeProgressView.swift in Sources */,
+				845556792844A5710062CD5F /* Profile.swift in Sources */,
 				840BC43D28420CA500AC1CE8 /* Life.swift in Sources */,
 				84B25468283BBDC200CD542E /* LifeProgressApp.swift in Sources */,
 			);

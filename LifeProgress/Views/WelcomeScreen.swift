@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct Welcome: View {
+struct WelcomeScreen: View {
     @State private var showingProfile = false
     
     var body: some View {
@@ -25,7 +25,7 @@ struct Welcome: View {
         }
         .padding()
         .sheet(isPresented: $showingProfile) {
-            Profile(onDone: {
+            ProfileScreen(onDone: {
                 showingProfile = false
             })
         }
@@ -34,6 +34,6 @@ struct Welcome: View {
 
 struct Welcome_Previews: PreviewProvider {
     static var previews: some View {
-        Welcome()
+        WelcomeScreen()
     }
 }

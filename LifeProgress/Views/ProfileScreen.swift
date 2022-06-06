@@ -2,7 +2,7 @@ import Defaults
 import SwiftUI
 import WidgetKit
 
-struct Profile: View {
+struct ProfileScreen: View {
     @State var birthday = Defaults[.birthday] ?? getDefaultBirthday()
     @State var lifeExpectancy = Defaults[.lifeExpectancy]
 
@@ -57,8 +57,8 @@ struct Profile: View {
     }
 }
 
-struct Profile_Previews: PreviewProvider {
+struct ProfileScreen_Previews: PreviewProvider {
     static var previews: some View {
-        Profile(onDone: {})
+        ProfileScreen(onDone: {})
     }
 }
