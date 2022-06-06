@@ -22,8 +22,9 @@ struct LifeProgressView: View {
                             let previousAgeGroupProportion = Double(group.rawValue) /
                                 Double(life
                                     .lifeExpectancy)
-                            
-                            AgeGroup.getColorFor(age: group.rawValue)
+
+                            group
+                                .getColor()
                                 .offset(y: containterHeight * previousAgeGroupProportion)
                         }
                     }
@@ -34,7 +35,8 @@ struct LifeProgressView: View {
                     .clipped()
 
                     // Current year
-                    AgeGroup.getColorFor(age: life.age + 1)
+                    AgeGroup(age: life.age + 1)
+                        .getColor()
                         .frame(
                             width: life.currentYearProgress * containerWidth,
                             height: containterHeight / Double(life.lifeExpectancy)
@@ -46,7 +48,7 @@ struct LifeProgressView: View {
             }
         }
     }
-    
+
     func getCurrentLife() -> Life? {
         if let birthday = birthday,
            let life = Life(

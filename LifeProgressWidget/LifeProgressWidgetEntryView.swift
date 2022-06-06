@@ -115,7 +115,6 @@ struct SystemLargeWidgetView: View {
     }
 }
 
-
 struct LifeProgressWidgetEntryView_Previews: PreviewProvider {
     static var previews: some View {
         let life = Life.example
@@ -125,10 +124,10 @@ struct LifeProgressWidgetEntryView_Previews: PreviewProvider {
         Group {
             SystemSmallWidgetView(life: life)
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
-            
+
             SystemMediumWidgetView(life: life)
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
-            
+
             SystemLargeWidgetView(life: life)
                 .previewContext(WidgetPreviewContext(family: .systemLarge))
         }

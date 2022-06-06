@@ -1,5 +1,4 @@
 import Foundation
-import SwiftUI
 
 enum AgeGroup: Int, CaseIterable {
     case baby = 0
@@ -9,21 +8,22 @@ enum AgeGroup: Int, CaseIterable {
     case adult = 25
     case middleAge = 40
     case oldAge = 60
-    
-    static func getColorFor(age: Int) -> Color {
-        if age < child.rawValue {
-            return .blue
-        } else if age < adolescent.rawValue {
-            return .green
-        } else if age < youngAdult.rawValue {
-            return .yellow
-        } else if age < adult.rawValue {
-            return .orange
-        } else if age < middleAge.rawValue {
-            return .red
+
+    init(age: Int) {
+        if age < AgeGroup.child.rawValue {
+            self = .baby
+        } else if age < AgeGroup.adolescent.rawValue {
+            self = .child
+        } else if age < AgeGroup.youngAdult.rawValue {
+            self = .adolescent
+        } else if age < AgeGroup.adult.rawValue {
+            self = .youngAdult
+        } else if age < AgeGroup.middleAge.rawValue {
+            self = .adult
+        } else if age < AgeGroup.oldAge.rawValue {
+            self = .middleAge
         } else {
-            return .purple
+            self = .oldAge
         }
     }
-
 }

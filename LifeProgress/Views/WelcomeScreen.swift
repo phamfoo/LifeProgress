@@ -2,7 +2,7 @@ import SwiftUI
 
 struct WelcomeScreen: View {
     @State private var showingProfile = false
-    
+
     var body: some View {
         VStack {
             Image(systemName: "calendar")

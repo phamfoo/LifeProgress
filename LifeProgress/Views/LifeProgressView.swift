@@ -42,7 +42,8 @@ struct LifeProgressView: View {
                         ))
 
                     let currentYear = yearIndex + 1
-                    let ageGroupColor = AgeGroup.getColorFor(age: currentYear)
+                    let ageGroupColor = AgeGroup(age: currentYear)
+                        .getColor()
 
                     // Ignore the current year (currentYear == life.age)
                     if currentYear < life.age {
@@ -85,7 +86,7 @@ struct LifeProgressView: View {
 
                 Rectangle()
                     .fill(weekIndex < life.weekOfYear ?
-                        AgeGroup.getColorFor(age: life.age + 1) :
+                        AgeGroup(age: life.age + 1).getColor() :
                         Color(uiColor: .systemFill))
                     .padding(cellPadding)
                     .frame(width: cellSize, height: cellSize)

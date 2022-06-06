@@ -30,6 +30,8 @@
 		84B2546A283BBDC200CD542E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B25469283BBDC200CD542E /* ContentView.swift */; };
 		84B2546C283BBDC300CD542E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B2546B283BBDC300CD542E /* Assets.xcassets */; };
 		84B2546F283BBDC300CD542E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B2546E283BBDC300CD542E /* Preview Assets.xcassets */; };
+		84F1E90A284DA283009F912B /* AgeGroupExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F1E909284DA283009F912B /* AgeGroupExtensions.swift */; };
+		84F1E90B284DA305009F912B /* AgeGroupExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F1E909284DA283009F912B /* AgeGroupExtensions.swift */; };
 		84F5020A2844686C00FFD597 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 84F502092844686C00FFD597 /* Defaults */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,7 @@
 		84B25469283BBDC200CD542E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		84B2546B283BBDC300CD542E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84B2546E283BBDC300CD542E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		84F1E909284DA283009F912B /* AgeGroupExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeGroupExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,7 @@
 				840BC44028420CE000AC1CE8 /* WelcomeScreen.swift */,
 				840BC44228420D0100AC1CE8 /* LifeProgressView.swift */,
 				84B25469283BBDC200CD542E /* ContentView.swift */,
+				84F1E909284DA283009F912B /* AgeGroupExtensions.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -303,6 +307,7 @@
 				84A9314A284857BF00BE1D0D /* AgeGroup.swift in Sources */,
 				8499BDB9284652B5005A31D5 /* Life.swift in Sources */,
 				8499BDBD284652DF005A31D5 /* LifeProgressView.swift in Sources */,
+				84F1E90B284DA305009F912B /* AgeGroupExtensions.swift in Sources */,
 				8499BDAE2846520B005A31D5 /* LifeProgressWidget.swift in Sources */,
 				8499BDBA284652BE005A31D5 /* Profile.swift in Sources */,
 				847685BC2849EE8D0058A2F9 /* LifeProgressWidgetEntryView.swift in Sources */,
@@ -318,6 +323,7 @@
 				84B2546A283BBDC200CD542E /* ContentView.swift in Sources */,
 				84A0235B2847A915007770ED /* AgeGroup.swift in Sources */,
 				84401998284B9C450090926D /* HomeScreen.swift in Sources */,
+				84F1E90A284DA283009F912B /* AgeGroupExtensions.swift in Sources */,
 				840BC44328420D0100AC1CE8 /* LifeProgressView.swift in Sources */,
 				845556792844A5710062CD5F /* Profile.swift in Sources */,
 				840BC43D28420CA500AC1CE8 /* Life.swift in Sources */,

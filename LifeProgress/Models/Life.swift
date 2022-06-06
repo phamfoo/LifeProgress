@@ -43,13 +43,13 @@ struct Life {
     var currentYearProgress: Double {
         return Double(weekOfYear) / Double(Life.totalWeeksInAYear)
     }
-    
+
     var currentYearProgressFormattedString: String {
         let formattedProgress = String(format: "%.1f", currentYearProgress * 100)
 
         return formattedProgress
     }
-    
+
     var currentYearRemainingWeeks: Int {
         return Life.totalWeeksInAYear - weekOfYear
     }
@@ -57,13 +57,15 @@ struct Life {
     // We could use the Calendar API to calculate an accurate value of this,
     // but I want the value to match the amount of blank squares on the calendar
     var remainingWeeks: Int {
-        return Life.totalWeeksInAYear - weekOfYear + Life.totalWeeksInAYear * (lifeExpectancy - age - 1)
+        return Life.totalWeeksInAYear - weekOfYear + Life
+            .totalWeeksInAYear * (lifeExpectancy - age - 1)
     }
 
     static var example: Life {
         // This is meant to be used only in previews
         // So I think it's okay to force unwrap here
-        let birthday = Calendar.current.date(from: DateComponents(year: 1999, month: 9, day: 9))!
+        let birthday = Calendar.current
+            .date(from: DateComponents(year: 1999, month: 9, day: 9))!
         let life = Life(
             birthday: birthday,
             lifeExpectancy: 72
