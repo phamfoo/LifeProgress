@@ -41,7 +41,7 @@ struct HomeScreen: View {
                 Button(action: {
                     showingProfile.toggle()
                 }) {
-                    Image(systemName: "square.and.pencil").imageScale(.large)
+                    Image(systemName: "person.circle.fill").imageScale(.large)
                 })
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showingProfile) {
