@@ -32,6 +32,8 @@
 		84B2546F283BBDC300CD542E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B2546E283BBDC300CD542E /* Preview Assets.xcassets */; };
 		84F1E90A284DA283009F912B /* AgeGroupExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F1E909284DA283009F912B /* AgeGroupExtensions.swift */; };
 		84F1E90B284DA305009F912B /* AgeGroupExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F1E909284DA283009F912B /* AgeGroupExtensions.swift */; };
+		84F1E90D284DA9A4009F912B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84F1E90C284DA9A4009F912B /* InfoPlist.strings */; };
+		84F1E90E284DA9D0009F912B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84F1E90C284DA9A4009F912B /* InfoPlist.strings */; };
 		84F5020A2844686C00FFD597 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 84F502092844686C00FFD597 /* Defaults */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,7 @@
 		84B2546B283BBDC300CD542E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84B2546E283BBDC300CD542E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		84F1E909284DA283009F912B /* AgeGroupExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeGroupExtensions.swift; sourceTree = "<group>"; };
+		84F1E90C284DA9A4009F912B /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,12 +178,13 @@
 		84B25466283BBDC200CD542E /* LifeProgress */ = {
 			isa = PBXGroup;
 			children = (
-				845556762844A0540062CD5F /* LifeProgress.entitlements */,
 				84B25467283BBDC200CD542E /* LifeProgressApp.swift */,
 				8452B0E1284D9D1A0077FB1C /* Views */,
 				8422488B284D9B9200A504BD /* Models */,
 				84B2546B283BBDC300CD542E /* Assets.xcassets */,
 				84B2546D283BBDC300CD542E /* Preview Content */,
+				84F1E90C284DA9A4009F912B /* InfoPlist.strings */,
+				845556762844A0540062CD5F /* LifeProgress.entitlements */,
 			);
 			path = LifeProgress;
 			sourceTree = "<group>";
@@ -285,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8499BDB02846520C005A31D5 /* Assets.xcassets in Resources */,
+				84F1E90E284DA9D0009F912B /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B2546F283BBDC300CD542E /* Preview Assets.xcassets in Resources */,
+				84F1E90D284DA9A4009F912B /* InfoPlist.strings in Resources */,
 				84B2546C283BBDC300CD542E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
