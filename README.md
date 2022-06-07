@@ -1,4 +1,4 @@
-![](AppIcon.png)
+![](Misc/AppIcon.png)
 # Life Progress
 > Friendly reminder that you're not gonna live forever
 
