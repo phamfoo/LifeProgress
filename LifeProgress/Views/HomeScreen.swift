@@ -24,7 +24,7 @@ struct HomeScreen: View {
                         ))
                 }
 
-                LifeProgressView(life: life, displayMode: $displayMode)
+                LifeProgressView(life: life, displayMode: displayMode)
                     .onTapGesture {
                         withAnimation {
                             if displayMode == .currentYear {

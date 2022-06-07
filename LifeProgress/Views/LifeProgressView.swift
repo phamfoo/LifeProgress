@@ -2,7 +2,7 @@ import SwiftUI
 
 struct LifeProgressView: View {
     let life: Life
-    @Binding var displayMode: DisplayMode
+    var displayMode: DisplayMode
 
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -121,6 +121,6 @@ struct LifeProgressView: View {
 
 struct LifeCalendar_Previews: PreviewProvider {
     static var previews: some View {
-        LifeProgressView(life: Life.example, displayMode: .constant(.life))
+        LifeProgressView(life: Life.example, displayMode: .life)
     }
 }
