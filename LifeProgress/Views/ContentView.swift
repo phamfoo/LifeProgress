@@ -18,7 +18,7 @@ struct ContentView: View {
               let life = Life(
                   birthday: birthday,
                   lifeExpectancy: lifeExpectancy
-            )
+              )
         else {
             return nil
         }
