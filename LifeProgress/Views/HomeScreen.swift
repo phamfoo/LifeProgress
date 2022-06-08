@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HomeScreen: View {
     var life: Life
+    
     @State private var showingProfile = false
     @State private var displayMode: LifeProgressView.DisplayMode = .life
 
@@ -27,27 +28,27 @@ struct HomeScreen: View {
                 LifeProgressView(life: life, displayMode: displayMode)
                     .onTapGesture {
                         withAnimation {
-                            if displayMode == .currentYear {
-                                displayMode = .life
-                            } else {
-                                displayMode = .currentYear
-                            }
+                            displayMode = displayMode == .currentYear
+                                ? .life
+                                : .currentYear
                         }
                     }
                 Spacer()
             }
             .padding()
-            .navigationBarItems(trailing:
-                Button(action: {
-                    showingProfile.toggle()
-                }) {
-                    Image(systemName: "person.circle.fill").imageScale(.large)
-                })
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showingProfile = true
+                    } label: {
+                        Image(systemName: "person.circle.fill")
+                            .imageScale(.large)
+                    }
+                }
+            }
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showingProfile) {
-                ProfileScreen(onDone: {
-                    showingProfile = false
-                })
+                ProfileScreen()
             }
         }
     }

@@ -1,10 +1,24 @@
 import SwiftUI
 
 struct LifeProgressView: View {
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
+    
     let life: Life
     var displayMode: DisplayMode
 
     var body: some View {
+        if verticalSizeClass == .regular {
+            content
+        } else {
+            // We want the view to be expandable and scrollable
+            // if the user is in the landscape mode on the smaller devices.
+            ScrollView(showsIndicators: false) {
+                content
+            }
+        }
+    }
+    
+    var content: some View {
         ZStack(alignment: .topLeading) {
             // Most of the calendar is drawn using canvas,
             // except for the current year

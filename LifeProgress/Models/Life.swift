@@ -11,7 +11,7 @@ struct Life {
         let ageComponents = Calendar.current.dateComponents(
             [.year, .weekOfYear],
             from: birthday,
-            to: Date.now
+            to: .now
         )
 
         guard let age = ageComponents.year,
@@ -35,30 +35,26 @@ struct Life {
     }
 
     var progressFormattedString: String {
-        let formattedProgress = String(format: "%.1f", progress * 100)
-
-        return formattedProgress
+        String(format: "%.1f", progress * 100)
     }
 
     var currentYearProgress: Double {
-        return Double(weekOfYear) / Double(Life.totalWeeksInAYear)
+        Double(weekOfYear) / Double(Life.totalWeeksInAYear)
     }
 
     var currentYearProgressFormattedString: String {
-        let formattedProgress = String(format: "%.1f", currentYearProgress * 100)
-
-        return formattedProgress
+        String(format: "%.1f", currentYearProgress * 100)
     }
 
     var currentYearRemainingWeeks: Int {
-        return Life.totalWeeksInAYear - weekOfYear
+        Life.totalWeeksInAYear - weekOfYear
     }
 
     // We could use the Calendar API to calculate an accurate value of this,
     // but I want the value to match the amount of blank squares on the calendar
     var remainingWeeks: Int {
-        return Life.totalWeeksInAYear - weekOfYear + Life
-            .totalWeeksInAYear * (lifeExpectancy - age - 1)
+        Life.totalWeeksInAYear - weekOfYear +
+            Life.totalWeeksInAYear * (lifeExpectancy - age - 1)
     }
 
     static var example: Life {

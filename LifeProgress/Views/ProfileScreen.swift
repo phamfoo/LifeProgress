@@ -3,10 +3,10 @@ import SwiftUI
 import WidgetKit
 
 struct ProfileScreen: View {
-    @State var birthday = Defaults[.birthday] ?? getDefaultBirthday()
-    @State var lifeExpectancy = Defaults[.lifeExpectancy]
+    @State private var birthday = Defaults[.birthday] ?? getDefaultBirthday()
+    @State private var lifeExpectancy = Defaults[.lifeExpectancy]
 
-    var onDone: () -> Void
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         NavigationView {
@@ -35,13 +35,14 @@ struct ProfileScreen: View {
             .navigationTitle("Profile")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {
                         Defaults[.birthday] = birthday
                         Defaults[.lifeExpectancy] = lifeExpectancy
 
                         WidgetCenter.shared.reloadAllTimelines()
-                        onDone()
+                        
+                        dismiss()
                     }
                 }
             }
@@ -64,15 +65,15 @@ struct ProfileScreen: View {
         let defaultBirthday = Calendar.current.date(
             byAdding: .year,
             value: -defaultUserAge,
-            to: Date.now
+            to: .now
         )
 
-        return defaultBirthday ?? Date.now
+        return defaultBirthday ?? .now
     }
 }
 
 struct ProfileScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileScreen(onDone: {})
+        ProfileScreen()
     }
 }

@@ -10,19 +10,20 @@ enum AgeGroup: Int, CaseIterable {
     case oldAge = 60
 
     init(age: Int) {
-        if age < AgeGroup.child.rawValue {
+        switch age {
+        case ..<AgeGroup.child.rawValue:
             self = .baby
-        } else if age < AgeGroup.adolescent.rawValue {
+        case ..<AgeGroup.adolescent.rawValue:
             self = .child
-        } else if age < AgeGroup.youngAdult.rawValue {
+        case ..<AgeGroup.youngAdult.rawValue:
             self = .adolescent
-        } else if age < AgeGroup.adult.rawValue {
+        case ..<AgeGroup.adult.rawValue:
             self = .youngAdult
-        } else if age < AgeGroup.middleAge.rawValue {
+        case ..<AgeGroup.middleAge.rawValue:
             self = .adult
-        } else if age < AgeGroup.oldAge.rawValue {
+        case ..<AgeGroup.oldAge.rawValue:
             self = .middleAge
-        } else {
+        default:
             self = .oldAge
         }
     }
