@@ -56,7 +56,7 @@ struct ProfileScreen: View {
             to: .now
         )
 
-        return (ageComponents.year ?? 0) + 1
+        return ageComponents.year! + 1
     }
 
 
