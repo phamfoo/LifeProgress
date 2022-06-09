@@ -14,6 +14,5 @@ The app also comes with widgets so you can see your life progress at a glance.
 ![](Misc/Widget.png)
 
 # Thanks
-I got the idea for this little project from:
-- https://twitter.com/ken_wheeler/status/1527104176433647622
-- https://waitbutwhy.com/2014/05/life-weeks.html
+- [Ken Wheeler](https://twitter.com/ken_wheeler) for the [app idea](https://twitter.com/tienphaw/status/1533797664432615424)
+- [Tim Urban](https://twitter.com/waitbutwhy) for inventing the concept of the life calendar and presenting it in [this article](https://waitbutwhy.com/2014/05/life-weeks.html)
