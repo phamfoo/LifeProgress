@@ -3,10 +3,10 @@ import SwiftUI
 import WidgetKit
 
 struct ProfileScreen: View {
-    @State var birthday = Defaults[.birthday] ?? getDefaultBirthday()
-    @State var lifeExpectancy = Defaults[.lifeExpectancy]
+    @State private var birthday = Defaults[.birthday] ?? getDefaultBirthday()
+    @State private var lifeExpectancy = Defaults[.lifeExpectancy]
 
-    var onDone: () -> Void
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         NavigationView {
@@ -20,9 +20,12 @@ struct ProfileScreen: View {
                     VStack(alignment: .leading) {
                         Text("Life Expectancy")
                             .font(.headline)
+                        
                         Picker("Life Expectancy", selection: $lifeExpectancy) {
-                            ForEach(28 ..< 128) { age in
-                                Text("\(age) years").tag(age)
+                            ForEach(
+                                minimumLifeExpectancy ..< minimumLifeExpectancy + 128,
+                                id: \.self) { age in
+                                    Text("\(age) years").tag(age)
                             }
                         }
                         .pickerStyle(.wheel)
@@ -32,33 +35,45 @@ struct ProfileScreen: View {
             .navigationTitle("Profile")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {
                         Defaults[.birthday] = birthday
                         Defaults[.lifeExpectancy] = lifeExpectancy
 
                         WidgetCenter.shared.reloadAllTimelines()
-                        onDone()
+                        
+                        dismiss()
                     }
                 }
             }
         }
     }
+    
+    var minimumLifeExpectancy: Int {
+        let ageComponents = Calendar.current.dateComponents(
+            [.year],
+            from: birthday,
+            to: .now
+        )
+
+        return ageComponents.year! + 1
+    }
+
 
     static func getDefaultBirthday() -> Date {
         let defaultUserAge = 22
         let defaultBirthday = Calendar.current.date(
             byAdding: .year,
             value: -defaultUserAge,
-            to: Date.now
+            to: .now
         )
 
-        return defaultBirthday ?? Date.now
+        return defaultBirthday ?? .now
     }
 }
 
 struct ProfileScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileScreen(onDone: {})
+        ProfileScreen()
     }
 }

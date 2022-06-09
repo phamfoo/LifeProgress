@@ -9,21 +9,21 @@ struct ContentView: View {
         if let life = getCurrentLife() {
             HomeScreen(life: life)
         } else {
-            WelcomeScreen()
+            OnboardingScreen()
         }
     }
 
     func getCurrentLife() -> Life? {
-        if let birthday = birthday,
-           let life = Life(
-               birthday: birthday,
-               lifeExpectancy: lifeExpectancy
-           )
-        {
-            return life
+        guard let birthday = birthday,
+              let life = Life(
+                  birthday: birthday,
+                  lifeExpectancy: lifeExpectancy
+              )
+        else {
+            return nil
         }
 
-        return nil
+        return life
     }
 }
 
