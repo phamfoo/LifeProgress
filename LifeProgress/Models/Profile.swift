@@ -7,5 +7,6 @@ extension Defaults.Keys {
     static let lifeExpectancy = Key<Int>("lifeExpectancy",
                                          default: 72,
                                          suite: extensionDefaults)
-    static let birthday = Key<Date?>("birthday", suite: extensionDefaults)
+    static let birthday = Key<Date>("birthday", default: Life.getDefaultBirthday(), suite: extensionDefaults)
+    static let profileSetupCompleted = Key<Bool>("profileSetupCompleted", default: false, suite: extensionDefaults)
 }

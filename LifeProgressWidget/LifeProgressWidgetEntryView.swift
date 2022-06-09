@@ -5,10 +5,17 @@ import WidgetKit
 struct LifeProgressWidgetEntryView: View {
     @Default(.lifeExpectancy) var lifeExpectancy
     @Default(.birthday) var birthday
+    @Default(.profileSetupCompleted) var profileSetupCompleted
+
     @Environment(\.widgetFamily) var widgetFamily
 
     var body: some View {
-        if let life = getCurrentLife() {
+        if profileSetupCompleted {
+            let life = Life(
+                birthday: birthday,
+                lifeExpectancy: lifeExpectancy
+            )!
+            
             switch widgetFamily {
             case .systemMedium:
                 SystemMediumWidgetView(life: life)
@@ -30,19 +37,6 @@ struct LifeProgressWidgetEntryView: View {
             }
         }
     }
-
-    func getCurrentLife() -> Life? {
-        if let birthday = birthday,
-           let life = Life(
-               birthday: birthday,
-               lifeExpectancy: lifeExpectancy
-           )
-        {
-            return life
-        }
-
-        return nil
-    }
 }
 
 struct SystemMediumWidgetView: View {
@@ -63,7 +57,7 @@ struct SystemMediumWidgetView: View {
                     .foregroundColor(.secondary)
             }
 
-            LifeProgressView()
+            LifeProgressView(life: life)
                 .clipShape(ContainerRelativeShape())
                 .padding([.leading])
         }
@@ -85,7 +79,7 @@ struct SystemSmallWidgetView: View {
                 .font(.footnote)
                 .foregroundColor(.secondary)
 
-            LifeProgressView()
+            LifeProgressView(life: life)
                 .clipShape(ContainerRelativeShape())
                 .padding([.top], 8)
         }
@@ -108,7 +102,7 @@ struct SystemLargeWidgetView: View {
                 .font(.subheadline)
                 .foregroundColor(.secondary)
 
-            LifeProgressView()
+            LifeProgressView(life: life)
                 .clipShape(ContainerRelativeShape())
                 .padding([.top], 8)
         }

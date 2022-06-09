@@ -56,12 +56,22 @@ struct Life {
         Life.totalWeeksInAYear - weekOfYear +
             Life.totalWeeksInAYear * (lifeExpectancy - age - 1)
     }
+    
+    static func getDefaultBirthday() -> Date {
+        let defaultUserAge = 22
+        let defaultBirthday = Calendar.current.date(
+            byAdding: .year,
+            value: -defaultUserAge,
+            to: .now
+        )
+
+        return defaultBirthday ?? .now
+    }
 
     static var example: Life {
         // This is meant to be used only in previews
         // So I think it's okay to force unwrap here
-        let birthday = Calendar.current
-            .date(from: DateComponents(year: 1999, month: 9, day: 9))!
+        let birthday = getDefaultBirthday()
         let life = Life(
             birthday: birthday,
             lifeExpectancy: 72

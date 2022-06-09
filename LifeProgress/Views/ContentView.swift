@@ -4,26 +4,19 @@ import SwiftUI
 struct ContentView: View {
     @Default(.lifeExpectancy) private var lifeExpectancy
     @Default(.birthday) private var birthday
+    @Default(.profileSetupCompleted) var profileSetupCompleted
 
     var body: some View {
-        if let life = getCurrentLife() {
+        if profileSetupCompleted {
+            let life = Life(
+                birthday: birthday,
+                lifeExpectancy: lifeExpectancy
+            )!
+            
             HomeScreen(life: life)
         } else {
             OnboardingScreen()
         }
-    }
-
-    func getCurrentLife() -> Life? {
-        guard let birthday = birthday,
-              let life = Life(
-                  birthday: birthday,
-                  lifeExpectancy: lifeExpectancy
-              )
-        else {
-            return nil
-        }
-
-        return life
     }
 }
 
