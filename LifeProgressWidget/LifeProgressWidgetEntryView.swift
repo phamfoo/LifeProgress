@@ -57,7 +57,7 @@ struct SystemMediumWidgetView: View {
                     .foregroundColor(.secondary)
             }
 
-            LifeProgressView(life: life)
+            SimplifiedLifeProgressView(life: life)
                 .clipShape(ContainerRelativeShape())
                 .padding([.leading])
         }
@@ -79,7 +79,7 @@ struct SystemSmallWidgetView: View {
                 .font(.footnote)
                 .foregroundColor(.secondary)
 
-            LifeProgressView(life: life)
+            SimplifiedLifeProgressView(life: life)
                 .clipShape(ContainerRelativeShape())
                 .padding([.top], 8)
         }
@@ -102,7 +102,7 @@ struct SystemLargeWidgetView: View {
                 .font(.subheadline)
                 .foregroundColor(.secondary)
 
-            LifeProgressView(life: life)
+            SimplifiedLifeProgressView(life: life)
                 .clipShape(ContainerRelativeShape())
                 .padding([.top], 8)
         }
