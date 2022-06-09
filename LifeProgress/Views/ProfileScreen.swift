@@ -21,12 +21,13 @@ struct ProfileScreen: View {
                     VStack(alignment: .leading) {
                         Text("Life Expectancy")
                             .font(.headline)
-                        
+
                         Picker("Life Expectancy", selection: $lifeExpectancy) {
                             ForEach(
                                 minimumLifeExpectancy ..< minimumLifeExpectancy + 128,
-                                id: \.self) { age in
-                                    Text("\(age) years").tag(age)
+                                id: \.self
+                            ) { age in
+                                Text("\(age) years").tag(age)
                             }
                         }
                         .pickerStyle(.wheel)
@@ -41,16 +42,16 @@ struct ProfileScreen: View {
                         if !profileSetupCompleted {
                             Defaults[.profileSetupCompleted] = true
                         }
-                        
+
                         WidgetCenter.shared.reloadAllTimelines()
-                        
+
                         dismiss()
                     }
                 }
             }
         }
     }
-    
+
     var minimumLifeExpectancy: Int {
         let ageComponents = Calendar.current.dateComponents(
             [.year],
@@ -60,7 +61,6 @@ struct ProfileScreen: View {
 
         return ageComponents.year! + 1
     }
-
 
     static func getDefaultBirthday() -> Date {
         let defaultUserAge = 22

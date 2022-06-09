@@ -2,8 +2,9 @@ import SwiftUI
 
 struct HomeScreen: View {
     var life: Life
-    
+
     @State private var showingProfile = false
+    @State private var showingAbout = false
     @State private var displayMode: LifeProgressView.DisplayMode = .life
 
     var body: some View {
@@ -38,17 +39,39 @@ struct HomeScreen: View {
             .padding()
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        showingProfile = true
+                    Menu {
+                        Button {
+                            showingProfile = true
+                        } label: {
+                            Label(
+                                "Profile",
+                                systemImage: "person.circle.fill"
+                            )
+                        }
+
+                        Button {
+                            showingAbout = true
+                        } label: {
+                            Label(
+                                "About This App",
+                                systemImage: "info.circle.fill"
+                            )
+                        }
+
                     } label: {
-                        Image(systemName: "person.circle.fill")
-                            .imageScale(.large)
+                        Label(
+                            "Menu",
+                            systemImage: "ellipsis.circle"
+                        )
                     }
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showingProfile) {
                 ProfileScreen()
+            }
+            .sheet(isPresented: $showingAbout) {
+                AboutScreen(life: life)
             }
         }
     }

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct LifeProgressView: View {
     @Environment(\.verticalSizeClass) private var verticalSizeClass
-    
+
     let life: Life
     var displayMode: DisplayMode
 
@@ -17,7 +17,7 @@ struct LifeProgressView: View {
             }
         }
     }
-    
+
     var content: some View {
         ZStack(alignment: .topLeading) {
             // Most of the calendar is drawn using canvas,
