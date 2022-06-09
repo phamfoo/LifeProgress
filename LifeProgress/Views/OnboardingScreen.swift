@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct WelcomeScreen: View {
+struct OnboardingScreen: View {
     @State private var showingProfile = false
 
     var body: some View {
@@ -10,7 +10,7 @@ struct WelcomeScreen: View {
             Image("icon")
                 .resizable()
                 .frame(width: 100, height: 100)
-                .cornerRadius(12.0)
+                .cornerRadius(12)
 
             VStack(alignment: .leading, spacing: 0) {
                 Text("Welcome to")

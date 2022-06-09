@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		840AA58C283FB91F000FB75E /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840AA58B283FB91F000FB75E /* ProfileScreen.swift */; };
 		840BC43D28420CA500AC1CE8 /* Life.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC43C28420CA500AC1CE8 /* Life.swift */; };
-		840BC44128420CE000AC1CE8 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC44028420CE000AC1CE8 /* WelcomeScreen.swift */; };
+		840BC44128420CE000AC1CE8 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC44028420CE000AC1CE8 /* OnboardingScreen.swift */; };
 		840BC44328420D0100AC1CE8 /* LifeProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC44228420D0100AC1CE8 /* LifeProgressView.swift */; };
 		84401998284B9C450090926D /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84401997284B9C450090926D /* HomeScreen.swift */; };
 		845556792844A5710062CD5F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845556782844A5710062CD5F /* Profile.swift */; };
@@ -64,7 +64,7 @@
 /* Begin PBXFileReference section */
 		840AA58B283FB91F000FB75E /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		840BC43C28420CA500AC1CE8 /* Life.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Life.swift; sourceTree = "<group>"; };
-		840BC44028420CE000AC1CE8 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
+		840BC44028420CE000AC1CE8 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		840BC44228420D0100AC1CE8 /* LifeProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeProgressView.swift; sourceTree = "<group>"; };
 		84401997284B9C450090926D /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		8455565E28449DDB0062CD5F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -126,7 +126,7 @@
 			children = (
 				84401997284B9C450090926D /* HomeScreen.swift */,
 				840AA58B283FB91F000FB75E /* ProfileScreen.swift */,
-				840BC44028420CE000AC1CE8 /* WelcomeScreen.swift */,
+				840BC44028420CE000AC1CE8 /* OnboardingScreen.swift */,
 				840BC44228420D0100AC1CE8 /* LifeProgressView.swift */,
 				84B25469283BBDC200CD542E /* ContentView.swift */,
 				84F1E909284DA283009F912B /* AgeGroupExtensions.swift */,
@@ -324,7 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				840BC44128420CE000AC1CE8 /* WelcomeScreen.swift in Sources */,
+				840BC44128420CE000AC1CE8 /* OnboardingScreen.swift in Sources */,
 				840AA58C283FB91F000FB75E /* ProfileScreen.swift in Sources */,
 				84B2546A283BBDC200CD542E /* ContentView.swift in Sources */,
 				84A0235B2847A915007770ED /* AgeGroup.swift in Sources */,

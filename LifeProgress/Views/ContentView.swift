@@ -9,7 +9,7 @@ struct ContentView: View {
         if let life = getCurrentLife() {
             HomeScreen(life: life)
         } else {
-            WelcomeScreen()
+            OnboardingScreen()
         }
     }
 
