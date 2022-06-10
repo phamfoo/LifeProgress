@@ -129,13 +129,12 @@ struct AboutScreen: View {
 
     var sponsor: some View {
         VStack {
-            HStack {
+            HStack(spacing: 14) {
                 Image("PneumaLogo")
                     .resizable()
                     .renderingMode(.template)
                     .foregroundColor(.primary)
                     .frame(width: 49, height: 45)
-                    .padding(.horizontal)
 
                 VStack(alignment: .leading) {
                     Text("Pneuma Media")
