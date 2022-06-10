@@ -14,6 +14,12 @@ struct AboutScreen: View {
                             .padding(.vertical)
                     }
 
+                    Section("Learn more") {
+                        learnMore
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.vertical)
+                    }
+
                     Section("Sponsor") {
                         sponsor
                             .padding(.vertical)
@@ -22,6 +28,52 @@ struct AboutScreen: View {
             }
             .navigationTitle("About Life Progress")
             .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+
+    var learnMore: some View {
+        Group {
+            VStack(alignment: .leading) {
+                Text("\"Your Life in Weeks\"")
+                    .font(.headline)
+
+                Text(
+                    "This idea was originally introduced in an article by **Tim Urban**."
+                )
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+
+                Link("Visit the article",
+                     destination: URL(
+                         string: "https://waitbutwhy.com/2014/05/life-weeks.html"
+                     )!)
+            }
+
+            VStack(alignment: .leading) {
+                Text("\"What Are You Doing With Your Life? The Tail End\"")
+                    .font(.headline)
+
+                Text(
+                    "**Kurzgesagt**'s phenomenal video on the topic."
+                )
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+
+                Link("See the video on YouTube",
+                     destination: URL(
+                         string: "https://www.youtube.com/watch?v=JXeJANDKwDc"
+                     )!)
+            }
+
+            VStack(alignment: .leading) {
+                Text("The project is open source!")
+                    .font(.headline)
+
+                Link("Check out the code on GitHub",
+                     destination: URL(
+                         string: "https://github.com/tienphaw/LifeProgress"
+                     )!)
+            }
         }
     }
 
@@ -49,7 +101,7 @@ struct AboutScreen: View {
 
             VStack(alignment: .leading) {
                 Text(
-                    "Each row of weeks makes up one year"
+                    "Each row of 52 weeks makes up one year"
                 )
                 .font(.headline)
 
@@ -76,22 +128,24 @@ struct AboutScreen: View {
     }
 
     var sponsor: some View {
-        HStack {
-            Image("PneumaLogo")
-                .resizable()
-                .renderingMode(.template)
-                .foregroundColor(.primary)
-                .frame(width: 49, height: 45)
-                .padding(.horizontal)
+        VStack {
+            HStack {
+                Image("PneumaLogo")
+                    .resizable()
+                    .renderingMode(.template)
+                    .foregroundColor(.primary)
+                    .frame(width: 49, height: 45)
+                    .padding(.horizontal)
 
-            VStack(alignment: .leading) {
-                Text("Pneuma Media")
-                    .font(.headline)
+                VStack(alignment: .leading) {
+                    Text("Pneuma Media")
+                        .font(.headline)
 
-                Link("pneumallc.co",
-                     destination: URL(
-                         string: "https://www.pneumallc.co"
-                     )!)
+                    Link("pneumallc.co",
+                         destination: URL(
+                             string: "https://www.pneumallc.co"
+                         )!)
+                }
             }
         }
     }
