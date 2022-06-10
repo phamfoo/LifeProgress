@@ -77,29 +77,21 @@ struct HomeScreen: View {
     }
 
     var lifeProgressInfo: some View {
-        let remainingWeeksText = try! AttributedString(
-            markdown: "**\(life.remainingWeeks)** weeks left"
-        )
-
         return VStack(alignment: .leading) {
             Text("Life Progress: \(life.progressFormattedString)%")
                 .font(.title)
                 .bold()
-            Text(remainingWeeksText)
+            Text("**\(life.remainingWeeks)** weeks left")
                 .foregroundColor(.secondary)
         }
     }
 
     var yearProgressInfo: some View {
-        let remainingWeeksText = try! AttributedString(
-            markdown: "**\(life.currentYearRemainingWeeks)** weeks until your birthday"
-        )
-
         return VStack(alignment: .leading) {
             Text("Year Progress: \(life.currentYearProgressFormattedString)%")
                 .font(.title)
                 .bold()
-            Text(remainingWeeksText)
+            Text("**\(life.currentYearRemainingWeeks)** weeks until your birthday")
                 .foregroundColor(.secondary)
         }
     }

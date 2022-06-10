@@ -49,10 +49,7 @@ struct SystemMediumWidgetView: View {
                     .font(.title)
                     .bold()
 
-                let remainingWeeksText = try! AttributedString(
-                    markdown: "**\(life.remainingWeeks)** weeks left"
-                )
-                Text(remainingWeeksText)
+                Text("**\(life.remainingWeeks)** weeks left")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
@@ -72,10 +69,7 @@ struct SystemSmallWidgetView: View {
             Text("\(life.progressFormattedString)%")
                 .font(.headline)
 
-            let remainingWeeksText = try! AttributedString(
-                markdown: "**\(life.remainingWeeks)** weeks left"
-            )
-            Text(remainingWeeksText)
+            Text("**\(life.remainingWeeks)** weeks left")
                 .font(.footnote)
                 .foregroundColor(.secondary)
 
@@ -95,10 +89,7 @@ struct SystemLargeWidgetView: View {
                 .font(.title)
                 .bold()
 
-            let remainingWeeksText = try! AttributedString(
-                markdown: "**\(life.remainingWeeks)** weeks left"
-            )
-            Text(remainingWeeksText)
+            Text("**\(life.remainingWeeks)** weeks left")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
 
