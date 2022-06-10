@@ -6,6 +6,8 @@ struct LifeCalendarView: View {
     let life: Life
     var displayMode: DisplayMode
 
+    private static let currentYearModeColumnCount = 6
+
     var body: some View {
         if verticalSizeClass == .regular {
             content
@@ -19,7 +21,15 @@ struct LifeCalendarView: View {
     }
 
     var content: some View {
-        ZStack(alignment: .topLeading) {
+        let fullCalendarAspectRatio = Double(Life.totalWeeksInAYear) /
+            Double(life.lifeExpectancy)
+
+        let currentYearGridAspectRatio = Double(LifeCalendarView
+            .currentYearModeColumnCount) /
+            (Double(Life.totalWeeksInAYear) /
+                Double(LifeCalendarView.currentYearModeColumnCount) + 1)
+
+        return ZStack(alignment: .topLeading) {
             // Most of the calendar is drawn using canvas,
             // except for the current year
             //
@@ -34,7 +44,9 @@ struct LifeCalendarView: View {
             currentYear
         }
         .aspectRatio(
-            Double(Life.totalWeeksInAYear) / Double(life.lifeExpectancy),
+            // This prevents content from being cut off
+            // while trying to utilize as much space as we can
+            min(fullCalendarAspectRatio, currentYearGridAspectRatio),
             contentMode: .fit
         )
     }
@@ -81,10 +93,9 @@ struct LifeCalendarView: View {
     var currentYear: some View {
         GeometryReader { geometry in
             let containerWidth = geometry.size.width
-            let currentYearModeColumnCount = 6
 
             let cellSize = displayMode == .currentYear ?
-                containerWidth / Double(currentYearModeColumnCount) :
+                containerWidth / Double(LifeCalendarView.currentYearModeColumnCount) :
                 containerWidth / Double(Life.totalWeeksInAYear)
             let cellPadding = cellSize / 12
 
@@ -92,10 +103,10 @@ struct LifeCalendarView: View {
                 // TODO: Maybe instead of doing it this way, I could just lay things out normally
                 // and use matchedGeometryEffect and let SwiftUI do its "magic move" thing
                 let rowIndex = displayMode == .currentYear ?
-                    weekIndex / currentYearModeColumnCount :
+                    weekIndex / LifeCalendarView.currentYearModeColumnCount :
                     life.age - 1
                 let columnIndex = displayMode == .currentYear ?
-                    weekIndex % currentYearModeColumnCount :
+                    weekIndex % LifeCalendarView.currentYearModeColumnCount :
                     weekIndex
 
                 Rectangle()
@@ -110,7 +121,8 @@ struct LifeCalendarView: View {
                     )
                     .animation(
                         getAnimation(isActive: displayMode == .currentYear)
-                            .delay(Double(weekIndex / currentYearModeColumnCount) * 0.04),
+                            .delay(Double(weekIndex / LifeCalendarView
+                                    .currentYearModeColumnCount) * 0.04),
                         value: displayMode
                     )
             }
