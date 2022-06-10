@@ -90,7 +90,7 @@ struct AboutScreen: View {
                 .foregroundColor(.secondary)
 
                 ZStack(alignment: .topLeading) {
-                    SimplifiedLifeProgressView(life: life)
+                    SimplifiedLifeCalendarView(life: life)
                         .frame(width: 150, height: 200)
                         .padding(.leading, 100)
                         .padding(.top, 100)

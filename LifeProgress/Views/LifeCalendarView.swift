@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct LifeProgressView: View {
+struct LifeCalendarView: View {
     @Environment(\.verticalSizeClass) private var verticalSizeClass
 
     let life: Life
@@ -133,8 +133,8 @@ struct LifeProgressView: View {
     }
 }
 
-struct LifeCalendar_Previews: PreviewProvider {
+struct LifeCalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        LifeProgressView(life: Life.example, displayMode: .life)
+        LifeCalendarView(life: Life.example, displayMode: .life)
     }
 }

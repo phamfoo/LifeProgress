@@ -5,7 +5,7 @@ struct HomeScreen: View {
 
     @State private var showingProfile = false
     @State private var showingAbout = false
-    @State private var displayMode: LifeProgressView.DisplayMode = .life
+    @State private var displayMode: LifeCalendarView.DisplayMode = .life
 
     var body: some View {
         NavigationView {
@@ -26,7 +26,7 @@ struct HomeScreen: View {
                         ))
                 }
 
-                LifeProgressView(life: life, displayMode: displayMode)
+                LifeCalendarView(life: life, displayMode: displayMode)
                     .onTapGesture {
                         withAnimation {
                             displayMode = displayMode == .currentYear

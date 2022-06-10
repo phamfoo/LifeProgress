@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SimplifiedLifeProgressView: View {
+struct SimplifiedLifeCalendarView: View {
     var life: Life
 
     var body: some View {
@@ -45,8 +45,8 @@ struct SimplifiedLifeProgressView: View {
     }
 }
 
-struct SimplifiedLifeProgressView_Previews: PreviewProvider {
+struct SimplifiedLifeCalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        SimplifiedLifeProgressView(life: Life.example)
+        SimplifiedLifeCalendarView(life: Life.example)
     }
 }
