@@ -2,6 +2,9 @@
 # Life Progress
 > Friendly reminder that you're not gonna live forever
 
+# Download
+Coming soon...
+
 # How it works
 - Each square you see on screen represents a week in your life. The first square (the one at the top left) is the week you were born.
 - Each row of 52 weeks makes up one year
