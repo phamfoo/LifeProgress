@@ -1,7 +1,7 @@
 import Defaults
 import Foundation
 
-let extensionDefaults = UserDefaults(suiteName: "group.io.phaw.LifeProgress")!
+let extensionDefaults = UserDefaults(suiteName: "group.io.phaw.life-progress")!
 
 extension Defaults.Keys {
     static let lifeExpectancy = Key<Int>("lifeExpectancy",
