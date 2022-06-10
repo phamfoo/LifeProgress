@@ -33,7 +33,7 @@ struct LifeProgressWidgetEntryView: View {
                 Text("Calendar not available")
                 Text("Tap to setup")
                     .font(.headline)
-                    .padding([.top])
+                    .padding(.top)
             }
         }
     }
@@ -60,7 +60,7 @@ struct SystemMediumWidgetView: View {
 
             SimplifiedLifeCalendarView(life: life)
                 .clipShape(ContainerRelativeShape())
-                .padding([.leading])
+                .padding(.leading)
         }
     }
 }
@@ -79,7 +79,7 @@ struct SystemSmallWidgetView: View {
 
             SimplifiedLifeCalendarView(life: life)
                 .clipShape(ContainerRelativeShape())
-                .padding([.top], 8)
+                .padding(.top, 8)
         }
     }
 }
@@ -101,7 +101,7 @@ struct SystemLargeWidgetView: View {
 
             SimplifiedLifeCalendarView(life: life)
                 .clipShape(ContainerRelativeShape())
-                .padding([.top], 8)
+                .padding(.top, 8)
         }
     }
 }
