@@ -81,8 +81,10 @@ struct HomeScreen: View {
             Text("Life Progress: \(life.progressFormattedString)%")
                 .font(.title)
                 .bold()
-            Text("**\(life.remainingWeeks)** weeks left")
-                .foregroundColor(.secondary)
+            Text(
+                "**\(life.numberOfWeeksSpent)** weeks spent • **\(life.numberOfWeeksLeft)** weeks left"
+            )
+            .foregroundColor(.secondary)
         }
     }
 

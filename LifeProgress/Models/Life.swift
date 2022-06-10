@@ -50,13 +50,16 @@ struct Life {
         Life.totalWeeksInAYear - weekOfYear
     }
 
+    var numberOfWeeksSpent: Int {
+        Life.totalWeeksInAYear * age + weekOfYear
+    }
+
     // We could use the Calendar API to calculate an accurate value of this,
     // but I want the value to match the amount of blank squares on the calendar
-    var remainingWeeks: Int {
-        Life.totalWeeksInAYear - weekOfYear +
-            Life.totalWeeksInAYear * (lifeExpectancy - age - 1)
+    var numberOfWeeksLeft: Int {
+        Life.totalWeeksInAYear * lifeExpectancy - numberOfWeeksSpent
     }
-    
+
     static func getDefaultBirthday() -> Date {
         let defaultUserAge = 22
         let defaultBirthday = Calendar.current.date(

@@ -15,7 +15,7 @@ struct LifeProgressWidgetEntryView: View {
                 birthday: birthday,
                 lifeExpectancy: lifeExpectancy
             )!
-            
+
             switch widgetFamily {
             case .systemMedium:
                 SystemMediumWidgetView(life: life)
@@ -49,7 +49,11 @@ struct SystemMediumWidgetView: View {
                     .font(.title)
                     .bold()
 
-                Text("**\(life.remainingWeeks)** weeks left")
+                Text("**\(life.numberOfWeeksSpent)** weeks spent")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+
+                Text("**\(life.numberOfWeeksLeft)** weeks left")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
@@ -69,7 +73,7 @@ struct SystemSmallWidgetView: View {
             Text("\(life.progressFormattedString)%")
                 .font(.headline)
 
-            Text("**\(life.remainingWeeks)** weeks left")
+            Text("**\(life.numberOfWeeksLeft)** weeks left")
                 .font(.footnote)
                 .foregroundColor(.secondary)
 
@@ -89,9 +93,11 @@ struct SystemLargeWidgetView: View {
                 .font(.title)
                 .bold()
 
-            Text("**\(life.remainingWeeks)** weeks left")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
+            Text(
+                "**\(life.numberOfWeeksSpent)** weeks spent • **\(life.numberOfWeeksLeft)** weeks left"
+            )
+            .font(.subheadline)
+            .foregroundColor(.secondary)
 
             SimplifiedLifeProgressView(life: life)
                 .clipShape(ContainerRelativeShape())
