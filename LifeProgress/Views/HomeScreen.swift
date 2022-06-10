@@ -67,12 +67,13 @@ struct HomeScreen: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .sheet(isPresented: $showingProfile) {
-                ProfileScreen()
-            }
-            .sheet(isPresented: $showingAbout) {
-                AboutScreen(life: life)
-            }
+        }
+        .navigationViewStyle(.stack)
+        .sheet(isPresented: $showingProfile) {
+            ProfileScreen()
+        }
+        .sheet(isPresented: $showingAbout) {
+            AboutScreen(life: life)
         }
     }
 
