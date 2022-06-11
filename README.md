@@ -3,7 +3,8 @@
 > Friendly reminder that you're not gonna live forever
 
 # Download
-Coming soon...
+iOS: https://apps.apple.com/app/life-progress-life-calendar/id1629026581
+Android: Coming soon!
 
 # How it works
 - Each square you see on screen represents a week in your life. The first square (the one at the top left) is the week you were born.
