@@ -3,9 +3,8 @@ import SwiftUI
 import WidgetKit
 
 struct ProfileScreen: View {
-    @Default(.lifeExpectancy) private var lifeExpectancy
-    @Default(.birthday) private var birthday
-    @Default(.profileSetupCompleted) var profileSetupCompleted
+    @State private var birthday = Defaults[.birthday]
+    @State private var lifeExpectancy = Defaults[.lifeExpectancy]
 
     @Environment(\.dismiss) private var dismiss
 
@@ -39,9 +38,12 @@ struct ProfileScreen: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {
-                        if !profileSetupCompleted {
+                        if !Defaults[.profileSetupCompleted] {
                             Defaults[.profileSetupCompleted] = true
                         }
+
+                        Defaults[.birthday] = birthday
+                        Defaults[.lifeExpectancy] = lifeExpectancy
 
                         WidgetCenter.shared.reloadAllTimelines()
 
