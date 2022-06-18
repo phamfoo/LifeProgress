@@ -94,8 +94,13 @@ struct HomeScreen: View {
             Text("Year Progress: \(life.currentYearProgressFormattedString)%")
                 .font(.title)
                 .bold()
-            Text("**\(life.currentYearRemainingWeeks)** weeks until your birthday")
-                .foregroundColor(.secondary)
+            
+            // TODO: Make sure other strings are pluralized properly
+            // Maybe use stringsdict instead
+            Text(
+                "^[**\(life.currentYearRemainingWeeks)** weeks](inflect: true) until your birthday"
+            )
+            .foregroundColor(.secondary)
         }
     }
 }
