@@ -2,18 +2,11 @@ import Defaults
 import SwiftUI
 
 struct ContentView: View {
-    @Default(.lifeExpectancy) private var lifeExpectancy
-    @Default(.birthday) private var birthday
-    @Default(.profileSetupCompleted) var profileSetupCompleted
+    @Default(.profileSetupCompleted) private var profileSetupCompleted
 
     var body: some View {
         if profileSetupCompleted {
-            let life = Life(
-                birthday: birthday,
-                lifeExpectancy: lifeExpectancy
-            )!
-            
-            HomeScreen(life: life)
+            HomeScreen()
         } else {
             OnboardingScreen()
         }

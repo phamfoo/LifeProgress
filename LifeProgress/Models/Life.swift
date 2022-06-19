@@ -1,3 +1,4 @@
+import Defaults
 import Foundation
 
 struct Life {
@@ -58,6 +59,10 @@ struct Life {
     // but I want the value to match the amount of blank squares on the calendar
     var numberOfWeeksLeft: Int {
         Life.totalWeeksInAYear * lifeExpectancy - numberOfWeeksSpent
+    }
+
+    static func getCurrentLife() -> Life {
+        Life(birthday: Defaults[.birthday], lifeExpectancy: Defaults[.lifeExpectancy])!
     }
 
     static func getDefaultBirthday() -> Date {

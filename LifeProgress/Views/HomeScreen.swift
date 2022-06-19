@@ -1,11 +1,13 @@
+import Defaults
 import SwiftUI
 
 struct HomeScreen: View {
-    var life: Life
+    @State private var life = Life.getCurrentLife()
 
     @State private var showingProfile = false
     @State private var showingAbout = false
     @State private var displayMode: LifeCalendarView.DisplayMode = .life
+    @Environment(\.scenePhase) var scenePhase
 
     var body: some View {
         NavigationView {
@@ -75,6 +77,11 @@ struct HomeScreen: View {
         .sheet(isPresented: $showingAbout) {
             AboutScreen(life: life)
         }
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .active {
+                life = Life.getCurrentLife()
+            }
+        }
     }
 
     var lifeProgressInfo: some View {
@@ -94,7 +101,7 @@ struct HomeScreen: View {
             Text("Year Progress: \(life.currentYearProgressFormattedString)%")
                 .font(.title)
                 .bold()
-            
+
             // TODO: Make sure other strings are pluralized properly
             // Maybe use stringsdict instead
             Text(
@@ -107,6 +114,6 @@ struct HomeScreen: View {
 
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreen(life: Life.example)
+        HomeScreen()
     }
 }

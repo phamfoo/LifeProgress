@@ -3,18 +3,13 @@ import SwiftUI
 import WidgetKit
 
 struct LifeProgressWidgetEntryView: View {
-    @Default(.lifeExpectancy) var lifeExpectancy
-    @Default(.birthday) var birthday
     @Default(.profileSetupCompleted) var profileSetupCompleted
 
     @Environment(\.widgetFamily) var widgetFamily
 
     var body: some View {
         if profileSetupCompleted {
-            let life = Life(
-                birthday: birthday,
-                lifeExpectancy: lifeExpectancy
-            )!
+            let life = Life.getCurrentLife()
 
             switch widgetFamily {
             case .systemMedium:
