@@ -1,13 +1,12 @@
 import Defaults
 import SwiftUI
 
-struct HomeScreen: View {
-    @State private var life = Life.getCurrentLife()
+private struct HomeView: View {
+    var life: Life
 
     @State private var showingProfile = false
     @State private var showingAbout = false
     @State private var displayMode: LifeCalendarView.DisplayMode = .life
-    @Environment(\.scenePhase) var scenePhase
 
     var body: some View {
         NavigationView {
@@ -77,11 +76,6 @@ struct HomeScreen: View {
         .sheet(isPresented: $showingAbout) {
             AboutScreen(life: life)
         }
-        .onChange(of: scenePhase) { newPhase in
-            if newPhase == .active {
-                life = Life.getCurrentLife()
-            }
-        }
     }
 
     var lifeProgressInfo: some View {
@@ -109,6 +103,20 @@ struct HomeScreen: View {
             )
             .foregroundColor(.secondary)
         }
+    }
+}
+
+struct HomeScreen: View {
+    @Environment(\.scenePhase) var scenePhase
+    @State private var life = Life.getCurrentLife()
+
+    var body: some View {
+        HomeView(life: life)
+            .onChange(of: scenePhase) { newPhase in
+                if newPhase == .active {
+                    life = Life.getCurrentLife()
+                }
+            }
     }
 }
 
