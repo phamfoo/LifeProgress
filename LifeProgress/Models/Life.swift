@@ -8,21 +8,15 @@ struct Life {
     var weekOfYear: Int
     var lifeExpectancy: Int
 
-    init?(birthday: Date, lifeExpectancy: Int) {
+    init(birthday: Date, lifeExpectancy: Int) {
         let ageComponents = Calendar.current.dateComponents(
             [.year, .weekOfYear],
             from: birthday,
             to: .now
         )
 
-        guard let age = ageComponents.year,
-              let weekOfYear = ageComponents.weekOfYear
-        else {
-            return nil
-        }
-
-        self.age = age
-        self.weekOfYear = weekOfYear
+        age = ageComponents.year!
+        weekOfYear = ageComponents.weekOfYear!
         self.lifeExpectancy = lifeExpectancy
     }
 
@@ -62,7 +56,7 @@ struct Life {
     }
 
     static func getCurrentLife() -> Life {
-        Life(birthday: Defaults[.birthday], lifeExpectancy: Defaults[.lifeExpectancy])!
+        Life(birthday: Defaults[.birthday], lifeExpectancy: Defaults[.lifeExpectancy])
     }
 
     static func getDefaultBirthday() -> Date {
@@ -83,7 +77,7 @@ struct Life {
         let life = Life(
             birthday: birthday,
             lifeExpectancy: 72
-        )!
+        )
 
         return life
     }
