@@ -1,5 +1,6 @@
 import Defaults
 import SwiftUI
+import WidgetKit
 
 private struct HomeView: View {
     var life: Life
@@ -115,6 +116,7 @@ struct HomeScreen: View {
             .onChange(of: scenePhase) { newPhase in
                 if newPhase == .active {
                     life = Life.getCurrentLife()
+                    WidgetCenter.shared.reloadAllTimelines()
                 }
             }
     }
