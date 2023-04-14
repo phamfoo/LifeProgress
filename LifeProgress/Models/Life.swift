@@ -9,9 +9,11 @@ struct Life {
     var lifeExpectancy: Int
 
     init(birthday: Date, lifeExpectancy: Int) {
-        let ageComponents = Calendar.current.dateComponents(
+        let calendar = Calendar.current
+
+        let ageComponents = calendar.dateComponents(
             [.year, .weekOfYear],
-            from: birthday,
+            from: calendar.startOfDay(for: birthday),
             to: .now
         )
 
