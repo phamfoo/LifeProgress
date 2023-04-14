@@ -73,8 +73,6 @@ struct Life {
     }
 
     static var example: Life {
-        // This is meant to be used only in previews
-        // So I think it's okay to force unwrap here
         let birthday = getDefaultBirthday()
         let life = Life(
             birthday: birthday,
