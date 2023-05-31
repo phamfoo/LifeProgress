@@ -5,28 +5,30 @@ struct SimplifiedLifeCalendarView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            let containterHeight = geometry.size.height
+            let containerHeight = geometry.size.height
             let containerWidth = geometry.size.width
             let progressWithoutCurrentYear = Double(life.age) /
                 Double(life.lifeExpectancy)
 
             VStack(alignment: .leading, spacing: 0) {
-                // Draw all age groups first, and then clip out only the top part
-                // which represents the passed years
+                // Draw all age groups first, and then clip out only the top
+                // part, which represents the passed years
                 ZStack(alignment: .topLeading) {
                     ForEach(AgeGroup.allCases, id: \.self) { group in
-                        let previousAgeGroupProportion = Double(group.rawValue) /
-                            Double(life
-                                .lifeExpectancy)
+                        let previousAgeGroupProportion =
+                            Double(group.rawValue) /
+                            Double(life.lifeExpectancy)
 
                         group
                             .getColor()
-                            .offset(y: containterHeight * previousAgeGroupProportion)
+                            .offset(
+                                y: containerHeight * previousAgeGroupProportion
+                            )
                     }
                 }
                 .frame(
                     width: containerWidth,
-                    height: progressWithoutCurrentYear * containterHeight
+                    height: progressWithoutCurrentYear * containerHeight
                 )
                 .clipped()
 
@@ -35,7 +37,7 @@ struct SimplifiedLifeCalendarView: View {
                     .getColor()
                     .frame(
                         width: life.currentYearProgress * containerWidth,
-                        height: containterHeight / Double(life.lifeExpectancy)
+                        height: containerHeight / Double(life.lifeExpectancy)
                     )
 
                 Spacer()
