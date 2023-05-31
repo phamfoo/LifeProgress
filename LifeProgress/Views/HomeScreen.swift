@@ -86,18 +86,16 @@ private struct HomeView: View {
                 .font(.system(size: 48))
                 .fontWeight(.heavy)
 
-            HStack(spacing: 0) {
-                Text("\(life.numberOfWeeksSpent)")
-                    .font(.title3)
-                    .fontWeight(.bold)
-                Text(" weeks spent • ")
+            let weeksSpentText = Text("\(life.numberOfWeeksSpent)")
+                .font(.title3)
+                .fontWeight(.bold)
+            let weeksLeftText = Text("\(life.numberOfWeeksLeft)")
+                .font(.title3)
+                .fontWeight(.bold)
 
-                Text("\(life.numberOfWeeksLeft)")
-                    .font(.title3)
-                    .fontWeight(.bold)
-
-                Text(" weeks left")
-            }
+            Text(
+                "\(weeksSpentText) weeks spent • \(weeksLeftText) weeks left"
+            )
             .foregroundColor(.secondary)
         }
     }
@@ -108,19 +106,24 @@ private struct HomeView: View {
                 .font(.system(size: 48))
                 .fontWeight(.heavy)
 
-            // TODO: Make sure other strings are pluralized properly
-            // Maybe use stringsdict instead
+            // TODO: Consider using stringsdict instead
+            // Not sure how that would work with nested texts
+            let remainingWeeks = life.currentYearRemainingWeeks
+            let remainingWeeksText = Text("\(remainingWeeks)")
+                .font(.title3)
+                .fontWeight(.bold)
 
-            HStack(spacing: 0) {
-                Text("\(life.currentYearRemainingWeeks)")
-                    .font(.title3)
-                    .fontWeight(.bold)
-
+            if remainingWeeks == 1 {
                 Text(
-                    " weeks until your birthday"
+                    "\(remainingWeeksText) week until your birthday"
                 )
+                .foregroundColor(.secondary)
+            } else {
+                Text(
+                    "\(remainingWeeksText) weeks until your birthday"
+                )
+                .foregroundColor(.secondary)
             }
-            .foregroundColor(.secondary)
         }
     }
 
