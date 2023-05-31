@@ -6,12 +6,18 @@ struct Provider: TimelineProvider {
         SimpleEntry(date: Date())
     }
 
-    func getSnapshot(in _: Context, completion: @escaping (SimpleEntry) -> Void) {
+    func getSnapshot(
+        in _: Context,
+        completion: @escaping (SimpleEntry) -> Void
+    ) {
         let entry = SimpleEntry(date: Date())
         completion(entry)
     }
 
-    func getTimeline(in _: Context, completion: @escaping (Timeline<Entry>) -> Void) {
+    func getTimeline(
+        in _: Context,
+        completion: @escaping (Timeline<Entry>) -> Void
+    ) {
         // Create a timeline entry for "now."
         let date = Date()
         let entry = SimpleEntry(
@@ -51,6 +57,21 @@ struct LifeProgressWidget: Widget {
         }
         .configurationDisplayName("Life Progress")
         .description("Friendly reminder that you're not gonna live forever.")
+        .supportedFamilies(supportedFamilies)
+    }
+
+    private var supportedFamilies: [WidgetFamily] {
+        var widgetFamilies: [WidgetFamily] = [
+            .systemSmall,
+            .systemLarge,
+            .systemExtraLarge,
+        ]
+
+        if #available(iOS 16, *) {
+            widgetFamilies.append(.accessoryCircular)
+        }
+
+        return widgetFamilies
     }
 }
 

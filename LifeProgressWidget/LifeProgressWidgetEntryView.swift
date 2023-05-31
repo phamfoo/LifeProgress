@@ -11,18 +11,18 @@ struct LifeProgressWidgetEntryView: View {
 
     var body: some View {
         if profileSetupCompleted {
-            switch widgetFamily {
-            case .systemMedium:
-                SystemMediumWidgetView(life: life)
-                    .padding()
-            case .systemSmall:
+            if #available(iOS 16, *), widgetFamily == .accessoryCircular {
+                AccessoryCircularWidgetView(life: life)
+            } else if widgetFamily == .systemSmall {
                 SystemSmallWidgetView(life: life)
                     .padding()
-            default:
+            } else if widgetFamily == .systemMedium {
+                SystemMediumWidgetView(life: life)
+                    .padding()
+            } else {
                 SystemLargeWidgetView(life: life)
                     .padding()
             }
-
         } else {
             VStack {
                 Text("Calendar not available")
@@ -35,6 +35,21 @@ struct LifeProgressWidgetEntryView: View {
 
     private var life: Life {
         return Life(birthday: birthday, lifeExpectancy: lifeExpectancy)
+    }
+}
+
+@available(iOS 16, *)
+struct AccessoryCircularWidgetView: View {
+    var life: Life
+
+    var body: some View {
+        Gauge(value: life.progress) {
+            Text("Life")
+                .font(.headline)
+        } currentValueLabel: {
+            Text("\(life.progressFormattedString)%")
+        }
+        .gaugeStyle(.accessoryCircular)
     }
 }
 
