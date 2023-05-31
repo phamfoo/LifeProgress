@@ -84,7 +84,7 @@ private struct HomeView: View {
         VStack(alignment: .leading) {
             Text("\(life.progressFormattedString)%")
                 .font(.system(size: 48))
-                .fontWeight(.heavy)
+                .fontWeight(.bold)
 
             let weeksSpentText = Text("\(life.numberOfWeeksSpent)")
                 .font(.title3)
@@ -104,7 +104,7 @@ private struct HomeView: View {
         VStack(alignment: .trailing) {
             Text("\(life.currentYearProgressFormattedString)%")
                 .font(.system(size: 48))
-                .fontWeight(.heavy)
+                .fontWeight(.bold)
 
             // TODO: Consider using stringsdict instead
             // Not sure how that would work with nested texts
