@@ -14,14 +14,12 @@ private struct HomeView: View {
             VStack(alignment: .center) {
                 if displayMode == .life {
                     lifeProgressInfo
-                        .frame(maxWidth: .infinity, alignment: .leading)
                         .transition(
                             moveTransition(edge: .leading)
                                 .combined(with: .opacity)
                         )
                 } else {
                     yearProgressInfo
-                        .frame(maxWidth: .infinity, alignment: .trailing)
                         .transition(
                             moveTransition(edge: .trailing)
                                 .combined(with: .opacity)
@@ -38,7 +36,7 @@ private struct HomeView: View {
                     }
                 Spacer()
             }
-            .padding()
+            .padding(.horizontal)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
@@ -81,7 +79,7 @@ private struct HomeView: View {
     }
 
     private var lifeProgressInfo: some View {
-        VStack(alignment: .leading) {
+        VStack {
             Text("\(life.progressFormattedString)%")
                 .font(.system(size: 48))
                 .fontWeight(.bold)
@@ -101,7 +99,7 @@ private struct HomeView: View {
     }
 
     private var yearProgressInfo: some View {
-        VStack(alignment: .trailing) {
+        VStack {
             Text("\(life.currentYearProgressFormattedString)%")
                 .font(.system(size: 48))
                 .fontWeight(.bold)
