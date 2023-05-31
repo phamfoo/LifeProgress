@@ -23,7 +23,9 @@ struct ProfileScreen: View {
 
                         Picker("Life Expectancy", selection: $lifeExpectancy) {
                             ForEach(
-                                minimumLifeExpectancy ..< minimumLifeExpectancy + 128,
+                                minimumLifeExpectancy ..<
+                                    minimumLifeExpectancy +
+                                    128,
                                 id: \.self
                             ) { age in
                                 Text("\(age) years").tag(age)
@@ -62,17 +64,6 @@ struct ProfileScreen: View {
         )
 
         return ageComponents.year! + 1
-    }
-
-    private static func getDefaultBirthday() -> Date {
-        let defaultUserAge = 22
-        let defaultBirthday = Calendar.current.date(
-            byAdding: .year,
-            value: -defaultUserAge,
-            to: .now
-        )
-
-        return defaultBirthday ?? .now
     }
 }
 
