@@ -12,19 +12,22 @@ private struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
-                if displayMode == .life {
-                    lifeProgressInfo
-                        .transition(
-                            moveTransition(edge: .leading)
-                                .combined(with: .opacity)
-                        )
-                } else {
-                    yearProgressInfo
-                        .transition(
-                            moveTransition(edge: .trailing)
-                                .combined(with: .opacity)
-                        )
+                Group {
+                    if displayMode == .life {
+                        lifeProgressInfo
+                            .transition(
+                                moveTransition(edge: .top)
+                                    .combined(with: .opacity)
+                            )
+                    } else {
+                        yearProgressInfo
+                            .transition(
+                                moveTransition(edge: .bottom)
+                                    .combined(with: .opacity)
+                            )
+                    }
                 }
+                .animation(.easeInOut(duration: 0.4), value: displayMode)
 
                 LifeCalendarView(life: life, displayMode: displayMode)
                     .onTapGesture {
@@ -75,7 +78,6 @@ private struct HomeView: View {
         .sheet(isPresented: $showingAbout) {
             AboutScreen(life: life)
         }
-        .animation(.easeInOut(duration: 0.6), value: displayMode)
     }
 
     private var lifeProgressInfo: some View {
@@ -127,9 +129,9 @@ private struct HomeView: View {
 
     private func moveTransition(edge: Edge) -> AnyTransition {
         let oppositeEdge: Edge =
-            edge == .leading
-                ? .trailing
-                : .leading
+            edge == .top
+                ? .bottom
+                : .top
         if #available(iOS 16.0, *) {
             return AnyTransition.move(edge: edge)
         } else {
