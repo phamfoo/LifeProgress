@@ -80,7 +80,7 @@ private struct HomeView: View {
         .animation(.easeInOut(duration: 0.6), value: displayMode)
     }
 
-    var lifeProgressInfo: some View {
+    private var lifeProgressInfo: some View {
         VStack(alignment: .leading) {
             Text("\(life.progressFormattedString)%")
                 .font(.system(size: 48))
@@ -102,7 +102,7 @@ private struct HomeView: View {
         }
     }
 
-    var yearProgressInfo: some View {
+    private var yearProgressInfo: some View {
         VStack(alignment: .trailing) {
             Text("\(life.currentYearProgressFormattedString)%")
                 .font(.system(size: 48))
@@ -124,7 +124,7 @@ private struct HomeView: View {
         }
     }
 
-    func moveTransition(edge: Edge) -> AnyTransition {
+    private func moveTransition(edge: Edge) -> AnyTransition {
         let oppositeEdge: Edge =
             edge == .leading
                 ? .trailing

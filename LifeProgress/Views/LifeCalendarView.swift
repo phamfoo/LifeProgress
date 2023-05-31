@@ -51,7 +51,7 @@ struct LifeCalendarView: View {
         )
     }
 
-    var calendarWithoutCurrentYear: some View {
+    private var calendarWithoutCurrentYear: some View {
         Canvas { context, size in
             let containerWidth = size.width
             let cellSize = containerWidth / Double(Life.totalWeeksInAYear)
@@ -90,7 +90,7 @@ struct LifeCalendarView: View {
         )
     }
 
-    var currentYear: some View {
+    private var currentYear: some View {
         GeometryReader { geometry in
             let containerWidth = geometry.size.width
 
@@ -134,7 +134,7 @@ struct LifeCalendarView: View {
         case life
     }
 
-    func getAnimation(isActive: Bool) -> Animation {
+    private func getAnimation(isActive: Bool) -> Animation {
         let animation = Animation.easeInOut(duration: 0.4)
 
         if isActive {

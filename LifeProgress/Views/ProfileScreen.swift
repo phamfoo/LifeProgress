@@ -54,7 +54,7 @@ struct ProfileScreen: View {
         }
     }
 
-    var minimumLifeExpectancy: Int {
+    private var minimumLifeExpectancy: Int {
         let ageComponents = Calendar.current.dateComponents(
             [.year],
             from: birthday,
@@ -64,7 +64,7 @@ struct ProfileScreen: View {
         return ageComponents.year! + 1
     }
 
-    static func getDefaultBirthday() -> Date {
+    private static func getDefaultBirthday() -> Date {
         let defaultUserAge = 22
         let defaultBirthday = Calendar.current.date(
             byAdding: .year,

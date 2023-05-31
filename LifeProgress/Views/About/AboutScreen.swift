@@ -31,7 +31,7 @@ struct AboutScreen: View {
         }
     }
 
-    var learnMore: some View {
+    private var learnMore: some View {
         Group {
             VStack(alignment: .leading) {
                 Text("\"Your Life in Weeks\"")
@@ -77,7 +77,7 @@ struct AboutScreen: View {
         }
     }
 
-    var howItWorks: some View {
+    private var howItWorks: some View {
         VStack(alignment: .leading, spacing: 48) {
             VStack(alignment: .leading) {
                 Text("A calendar for your life")
@@ -127,7 +127,7 @@ struct AboutScreen: View {
         }
     }
 
-    var sponsor: some View {
+    private var sponsor: some View {
         VStack {
             HStack(spacing: 14) {
                 Image("PneumaLogo")
