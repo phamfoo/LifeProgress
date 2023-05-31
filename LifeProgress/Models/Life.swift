@@ -57,10 +57,6 @@ struct Life {
         Life.totalWeeksInAYear * lifeExpectancy - numberOfWeeksSpent
     }
 
-    static func getCurrentLife() -> Life {
-        Life(birthday: Defaults[.birthday], lifeExpectancy: Defaults[.lifeExpectancy])
-    }
-
     static func getDefaultBirthday() -> Date {
         let defaultUserAge = 22
         let defaultBirthday = Calendar.current.date(

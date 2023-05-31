@@ -142,16 +142,20 @@ private struct HomeView: View {
 
 struct HomeScreen: View {
     @Environment(\.scenePhase) var scenePhase
-    @State private var life = Life.getCurrentLife()
+    @Default(.birthday) private var birthday
+    @Default(.lifeExpectancy) private var lifeExpectancy
 
     var body: some View {
         HomeView(life: life)
             .onChange(of: scenePhase) { newPhase in
                 if newPhase == .active {
-                    life = Life.getCurrentLife()
                     WidgetCenter.shared.reloadAllTimelines()
                 }
             }
+    }
+
+    private var life: Life {
+        return Life(birthday: birthday, lifeExpectancy: lifeExpectancy)
     }
 }
 

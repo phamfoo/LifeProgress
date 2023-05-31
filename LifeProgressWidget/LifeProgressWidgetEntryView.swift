@@ -4,13 +4,13 @@ import WidgetKit
 
 struct LifeProgressWidgetEntryView: View {
     @Default(.profileSetupCompleted) var profileSetupCompleted
+    @Default(.birthday) private var birthday
+    @Default(.lifeExpectancy) private var lifeExpectancy
 
     @Environment(\.widgetFamily) var widgetFamily
 
     var body: some View {
         if profileSetupCompleted {
-            let life = Life.getCurrentLife()
-
             switch widgetFamily {
             case .systemMedium:
                 SystemMediumWidgetView(life: life)
@@ -31,6 +31,10 @@ struct LifeProgressWidgetEntryView: View {
                     .padding(.top)
             }
         }
+    }
+
+    private var life: Life {
+        return Life(birthday: birthday, lifeExpectancy: lifeExpectancy)
     }
 }
 
