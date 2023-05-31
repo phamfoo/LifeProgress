@@ -15,17 +15,17 @@ private struct HomeView: View {
                 if displayMode == .life {
                     lifeProgressInfo
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .transition(AnyTransition.asymmetric(
-                            insertion: .move(edge: .bottom).combined(with: .opacity),
-                            removal: .move(edge: .top).combined(with: .opacity)
-                        ))
+                        .transition(
+                            moveTransition(edge: .leading)
+                                .combined(with: .opacity)
+                        )
                 } else {
                     yearProgressInfo
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .transition(AnyTransition.asymmetric(
-                            insertion: .move(edge: .top).combined(with: .opacity),
-                            removal: .move(edge: .bottom).combined(with: .opacity)
-                        ))
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .transition(
+                            moveTransition(edge: .trailing)
+                                .combined(with: .opacity)
+                        )
                 }
 
                 LifeCalendarView(life: life, displayMode: displayMode)
@@ -77,32 +77,65 @@ private struct HomeView: View {
         .sheet(isPresented: $showingAbout) {
             AboutScreen(life: life)
         }
+        .animation(.easeInOut(duration: 0.6), value: displayMode)
     }
 
     var lifeProgressInfo: some View {
-        return VStack(alignment: .leading) {
-            Text("Life Progress: \(life.progressFormattedString)%")
-                .font(.title)
-                .bold()
-            Text(
-                "**\(life.numberOfWeeksSpent)** weeks spent • **\(life.numberOfWeeksLeft)** weeks left"
-            )
+        VStack(alignment: .leading) {
+            Text("\(life.progressFormattedString)%")
+                .font(.system(size: 48))
+                .fontWeight(.heavy)
+
+            HStack(spacing: 0) {
+                Text("\(life.numberOfWeeksSpent)")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                Text(" weeks spent • ")
+
+                Text("\(life.numberOfWeeksLeft)")
+                    .font(.title3)
+                    .fontWeight(.bold)
+
+                Text(" weeks left")
+            }
             .foregroundColor(.secondary)
         }
     }
 
     var yearProgressInfo: some View {
-        return VStack(alignment: .leading) {
-            Text("Year Progress: \(life.currentYearProgressFormattedString)%")
-                .font(.title)
-                .bold()
+        VStack(alignment: .trailing) {
+            Text("\(life.currentYearProgressFormattedString)%")
+                .font(.system(size: 48))
+                .fontWeight(.heavy)
 
             // TODO: Make sure other strings are pluralized properly
             // Maybe use stringsdict instead
-            Text(
-                "^[**\(life.currentYearRemainingWeeks)** weeks](inflect: true) until your birthday"
-            )
+
+            HStack(spacing: 0) {
+                Text("\(life.currentYearRemainingWeeks)")
+                    .font(.title3)
+                    .fontWeight(.bold)
+
+                Text(
+                    " weeks until your birthday"
+                )
+            }
             .foregroundColor(.secondary)
+        }
+    }
+
+    func moveTransition(edge: Edge) -> AnyTransition {
+        let oppositeEdge: Edge =
+            edge == .leading
+                ? .trailing
+                : .leading
+        if #available(iOS 16.0, *) {
+            return AnyTransition.move(edge: edge)
+        } else {
+            return AnyTransition.asymmetric(
+                insertion: .move(edge: edge),
+                removal: .move(edge: oppositeEdge)
+            )
         }
     }
 }
