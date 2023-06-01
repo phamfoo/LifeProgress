@@ -27,7 +27,7 @@ private struct HomeView: View {
                             )
                     }
                 }
-                .animation(.easeInOut(duration: 0.4), value: displayMode)
+                .animation(.easeInOut(duration: 0.6), value: displayMode)
 
                 LifeCalendarView(life: life, displayMode: displayMode)
                     .onTapGesture {
