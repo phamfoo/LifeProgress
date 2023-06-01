@@ -81,7 +81,7 @@ private struct SystemSmallWidgetView: View {
     var life: Life
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .center, spacing: 0) {
             Text("\(life.progressFormattedString)%")
                 .font(.headline)
 
@@ -101,7 +101,7 @@ private struct SystemLargeWidgetView: View {
     var life: Life
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .center, spacing: 0) {
             Text("\(life.progressFormattedString)%")
                 .font(.title)
                 .bold()

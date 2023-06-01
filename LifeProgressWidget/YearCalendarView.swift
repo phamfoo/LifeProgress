@@ -4,29 +4,45 @@ struct YearCalendarView: View {
     var life: Life
 
     var body: some View {
-        GeometryReader { geometry in
+        Canvas { context, size in
             let numberOfColumns = 8
             let numberOfRows = Life.totalWeeksInAYear / numberOfColumns + 1
-            let cellWidth = geometry.size.width / Double(numberOfColumns)
-            let cellHeight = geometry.size.height / Double(numberOfRows)
-            let cellPadding = cellWidth / 12
+            let cellWidth = size.width / Double(numberOfColumns)
+            let cellHeight = size.height / Double(numberOfRows)
+            let cellPadding = cellWidth / 32
 
-            ForEach(0 ..< Life.totalWeeksInAYear, id: \.self) { weekIndex in
+            let scaleFactor = size.width / (size.width - cellPadding * 2)
+            let scaleTransform = CGAffineTransform(
+                scaleX: scaleFactor,
+                y: scaleFactor
+            )
+            let translateTransform = CGAffineTransform(
+                translationX: -cellPadding * scaleFactor,
+                y: -cellPadding * scaleFactor
+            )
+
+            context.concatenate(scaleTransform)
+            context.concatenate(translateTransform)
+
+            for weekIndex in 0 ... Life.totalWeeksInAYear {
                 let rowIndex = weekIndex / numberOfColumns
                 let columnIndex = weekIndex % numberOfColumns
 
-                Rectangle()
-                    .fill(
-                        weekIndex < life.weekOfYear ?
-                            AgeGroup(age: life.age + 1).getColor() :
-                            Color(uiColor: .systemFill)
+                let cellPath =
+                    Path(
+                        CGRect(
+                            x: Double(columnIndex) * cellWidth + cellPadding,
+                            y: Double(rowIndex) * cellHeight + cellPadding,
+                            width: cellWidth - cellPadding * 2,
+                            height: cellHeight - cellPadding * 2
+                        )
                     )
-                    .padding(cellPadding)
-                    .frame(width: cellWidth, height: cellHeight)
-                    .offset(
-                        x: Double(columnIndex) * cellWidth,
-                        y: Double(rowIndex) * cellHeight
-                    )
+
+                let fillColor = weekIndex < life.weekOfYear
+                    ? AgeGroup(age: life.age + 1).getColor()
+                    : Color(uiColor: .systemFill)
+
+                context.fill(cellPath, with: .color(fillColor))
             }
         }
     }

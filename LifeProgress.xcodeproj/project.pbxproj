@@ -18,6 +18,7 @@
 		845556792844A5710062CD5F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845556782844A5710062CD5F /* Profile.swift */; };
 		847685BC2849EE8D0058A2F9 /* LifeProgressWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847685BB2849EE8D0058A2F9 /* LifeProgressWidgetEntryView.swift */; };
 		847D76CA2A2855600038C6A9 /* YearCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D76C82A28534B0038C6A9 /* YearCalendarView.swift */; };
+		847D76CB2A28921E0038C6A9 /* YearCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D76C82A28534B0038C6A9 /* YearCalendarView.swift */; };
 		848EEB5E2844A6BA00B5AD78 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 848EEB5D2844A6BA00B5AD78 /* Defaults */; };
 		8499BDAA2846520B005A31D5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8455565E28449DDB0062CD5F /* WidgetKit.framework */; };
 		8499BDAB2846520B005A31D5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8455566028449DDB0062CD5F /* SwiftUI.framework */; };
@@ -365,6 +366,7 @@
 				840BC44328420D0100AC1CE8 /* LifeCalendarView.swift in Sources */,
 				845556792844A5710062CD5F /* Profile.swift in Sources */,
 				84C2C46E285211B90006F2B4 /* ZoomedInCalendar.swift in Sources */,
+				847D76CB2A28921E0038C6A9 /* YearCalendarView.swift in Sources */,
 				84C2C4622852050E0006F2B4 /* AboutScreen.swift in Sources */,
 				840BC43D28420CA500AC1CE8 /* Life.swift in Sources */,
 				84B25468283BBDC200CD542E /* LifeProgressApp.swift in Sources */,

@@ -81,48 +81,105 @@ private struct HomeView: View {
     }
 
     private var lifeProgressInfo: some View {
-        VStack {
-            Text("\(life.progressFormattedString)%")
-                .font(.system(size: 48))
-                .fontWeight(.bold)
+        VStack(spacing: 16) {
+            VStack {
+                Text("Your Life Progress")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
 
-            let weeksSpentText = Text("\(life.numberOfWeeksSpent)")
-                .font(.title3)
-                .fontWeight(.bold)
-            let weeksLeftText = Text("\(life.numberOfWeeksLeft)")
-                .font(.title3)
-                .fontWeight(.bold)
+                Text("\(life.progressFormattedString)%")
+                    .font(.system(size: 48))
+                    .fontWeight(.bold)
+            }
 
-            Text(
-                "\(weeksSpentText) weeks spent • \(weeksLeftText) weeks left"
-            )
-            .foregroundColor(.secondary)
+            HStack {
+                Spacer()
+
+                VStack {
+                    Text("\(Life.totalWeeksInAYear * life.lifeExpectancy)")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .foregroundColor(.primary)
+
+                    Text("in total")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+
+                Spacer()
+
+                VStack {
+                    Text("\(life.numberOfWeeksSpent)")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .foregroundColor(.primary)
+
+                    Text("weeks spent")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+
+                Spacer()
+
+                VStack {
+                    Text("\(life.numberOfWeeksLeft)")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .foregroundColor(.primary)
+
+                    Text("weeks left")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+
+                Spacer()
+            }
         }
     }
 
     private var yearProgressInfo: some View {
-        VStack {
-            Text("\(life.currentYearProgressFormattedString)%")
-                .font(.system(size: 48))
-                .fontWeight(.bold)
+        VStack(spacing: 16) {
+            VStack {
+                Text("Current Year Progress")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
 
-            // TODO: Consider using stringsdict instead
-            // Not sure how that would work with nested texts
-            let remainingWeeks = life.currentYearRemainingWeeks
-            let remainingWeeksText = Text("\(remainingWeeks)")
-                .font(.title3)
-                .fontWeight(.bold)
+                Text("\(life.currentYearProgressFormattedString)%")
+                    .font(.system(size: 48))
+                    .fontWeight(.bold)
+            }
 
-            if remainingWeeks == 1 {
-                Text(
-                    "\(remainingWeeksText) week until your birthday"
-                )
-                .foregroundColor(.secondary)
-            } else {
-                Text(
-                    "\(remainingWeeksText) weeks until your birthday"
-                )
-                .foregroundColor(.secondary)
+            HStack {
+                Spacer()
+
+                VStack {
+                    let weekOfYearText = Text("\(life.weekOfYear)")
+                        .foregroundColor(.primary)
+
+                    Text("\(weekOfYearText)/\(Life.totalWeeksInAYear)")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .foregroundColor(.secondary)
+
+                    Text("weeks spent")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+
+                Spacer()
+
+                VStack {
+                    Text("\(life.currentYearRemainingWeeks)")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .foregroundColor(.primary)
+
+                    Text("until birthday")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+
+                Spacer()
             }
         }
     }
