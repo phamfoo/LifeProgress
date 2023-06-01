@@ -62,9 +62,9 @@ struct LifeProgressWidget: Widget {
 
     private var supportedFamilies: [WidgetFamily] {
         var widgetFamilies: [WidgetFamily] = [
+            .systemMedium,
             .systemSmall,
             .systemLarge,
-            .systemExtraLarge,
         ]
 
         if #available(iOS 16, *) {
