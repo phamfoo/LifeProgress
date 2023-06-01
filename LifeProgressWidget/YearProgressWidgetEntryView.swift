@@ -2,7 +2,7 @@ import Defaults
 import SwiftUI
 import WidgetKit
 
-struct LifeProgressWidgetEntryView: View {
+struct YearProgressWidgetEntryView: View {
     @Default(.profileSetupCompleted) var profileSetupCompleted
     @Default(.birthday) private var birthday
     @Default(.lifeExpectancy) private var lifeExpectancy
@@ -43,11 +43,11 @@ private struct AccessoryCircularWidgetView: View {
     var life: Life
 
     var body: some View {
-        Gauge(value: life.progress) {
-            Text("Life")
+        Gauge(value: life.currentYearProgress) {
+            Text("Year")
                 .font(.headline)
         } currentValueLabel: {
-            Text("\(life.progressFormattedString)%")
+            Text("\(life.currentYearProgressFormattedString)%")
         }
         .gaugeStyle(.accessoryCircular)
     }
@@ -59,20 +59,20 @@ private struct SystemMediumWidgetView: View {
     var body: some View {
         HStack(alignment: .center) {
             VStack {
-                Text("\(life.progressFormattedString)%")
+                Text("\(life.currentYearProgressFormattedString)%")
                     .font(.title)
                     .bold()
 
-                Text("**\(life.numberOfWeeksSpent)** weeks spent")
+                Text("**\(life.weekOfYear)** weeks spent")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
 
-                Text("**\(life.numberOfWeeksLeft)** weeks left")
+                Text("**\(life.currentYearRemainingWeeks)** weeks left")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
 
-            SimplifiedLifeCalendarView(life: life)
+            YearCalendarView(life: life)
                 .clipShape(ContainerRelativeShape())
                 .padding(.leading)
         }
@@ -83,15 +83,15 @@ private struct SystemSmallWidgetView: View {
     var life: Life
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text("\(life.progressFormattedString)%")
+        VStack(alignment: .center, spacing: 0) {
+            Text("\(life.currentYearProgressFormattedString)%")
                 .font(.headline)
 
-            Text("**\(life.numberOfWeeksLeft)** weeks left")
+            Text("**\(life.currentYearRemainingWeeks)** weeks left")
                 .font(.footnote)
                 .foregroundColor(.secondary)
 
-            SimplifiedLifeCalendarView(life: life)
+            YearCalendarView(life: life)
                 .clipShape(ContainerRelativeShape())
                 .padding(.top, 8)
         }
@@ -102,30 +102,28 @@ private struct SystemLargeWidgetView: View {
     var life: Life
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .center, spacing: 0) {
             Text("\(life.progressFormattedString)%")
                 .font(.title)
                 .bold()
 
             Text(
-                "**\(life.numberOfWeeksSpent)** weeks spent • **\(life.numberOfWeeksLeft)** weeks left"
+                "**\(life.weekOfYear)** weeks spent • **\(life.currentYearRemainingWeeks)** weeks left"
             )
             .font(.subheadline)
             .foregroundColor(.secondary)
 
-            SimplifiedLifeCalendarView(life: life)
+            YearCalendarView(life: life)
                 .clipShape(ContainerRelativeShape())
                 .padding(.top, 8)
         }
     }
 }
 
-struct LifeProgressWidgetEntryView_Previews: PreviewProvider {
+struct YearProgressWidgetEntryView_Previews: PreviewProvider {
     static var previews: some View {
         let life = Life.example
 
-        // TODO: Preview LifeProgressWidgetEntryView directly after
-        // https://developer.apple.com/forums/thread/703143 is fixed
         Group {
             SystemSmallWidgetView(life: life)
                 .previewContext(WidgetPreviewContext(family: .systemSmall))

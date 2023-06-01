@@ -16,7 +16,7 @@ struct Provider: TimelineProvider {
 
     func getTimeline(
         in _: Context,
-        completion: @escaping (Timeline<Entry>) -> Void
+        completion: @escaping (Timeline<SimpleEntry>) -> Void
     ) {
         // Create a timeline entry for "now."
         let date = Date()
@@ -47,7 +47,6 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
 }
 
-@main
 struct LifeProgressWidget: Widget {
     let kind: String = "LifeProgressWidget"
 
@@ -73,6 +72,14 @@ struct LifeProgressWidget: Widget {
 
         return widgetFamilies
     }
+}
+
+@main
+struct Widgets: WidgetBundle {
+   var body: some Widget {
+       LifeProgressWidget()
+       YearProgressWidget()
+   }
 }
 
 struct LifeProgressWidget_Previews: PreviewProvider {

@@ -69,7 +69,10 @@ struct Life {
     }
 
     static var example: Life {
-        let birthday = getDefaultBirthday()
+        let birthday = Calendar.current.date(
+            byAdding: .month, value: 4, to: getDefaultBirthday()
+        ) ?? .now
+        
         let life = Life(
             birthday: birthday,
             lifeExpectancy: 72
