@@ -15,13 +15,10 @@ struct YearProgressWidgetEntryView: View {
                 AccessoryCircularWidgetView(life: life)
             } else if widgetFamily == .systemSmall {
                 SystemSmallWidgetView(life: life)
-                    .padding()
             } else if widgetFamily == .systemMedium {
                 SystemMediumWidgetView(life: life)
-                    .padding()
             } else {
                 SystemLargeWidgetView(life: life)
-                    .padding()
             }
         } else {
             VStack {
@@ -76,6 +73,7 @@ private struct SystemMediumWidgetView: View {
                 .clipShape(ContainerRelativeShape())
                 .padding(.leading)
         }
+        .padding()
     }
 }
 
@@ -95,6 +93,7 @@ private struct SystemSmallWidgetView: View {
                 .clipShape(ContainerRelativeShape())
                 .padding(.top, 8)
         }
+        .padding()
     }
 }
 
@@ -117,6 +116,7 @@ private struct SystemLargeWidgetView: View {
                 .clipShape(ContainerRelativeShape())
                 .padding(.top, 8)
         }
+        .padding()
     }
 }
 
