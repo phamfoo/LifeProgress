@@ -24,15 +24,14 @@ struct Provider: TimelineProvider {
             date: date
         )
 
-        let tomorrow = Calendar.current.date(
+        let calendar = Calendar.current
+        let tomorrow = calendar.date(
             byAdding: .day,
             value: 1,
             to: date
         )!
 
-        let nextUpdateDate = Calendar.current.date(
-            bySettingHour: 0, minute: 0, second: 0, of: tomorrow
-        )!
+        let nextUpdateDate = calendar.startOfDay(for: tomorrow)
 
         let timeline = Timeline(
             entries: [entry],
@@ -76,10 +75,10 @@ struct LifeProgressWidget: Widget {
 
 @main
 struct Widgets: WidgetBundle {
-   var body: some Widget {
-       LifeProgressWidget()
-       YearProgressWidget()
-   }
+    var body: some Widget {
+        LifeProgressWidget()
+        YearProgressWidget()
+    }
 }
 
 struct LifeProgressWidget_Previews: PreviewProvider {
