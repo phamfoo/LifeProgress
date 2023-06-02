@@ -7,20 +7,9 @@ struct YearProgressWidgetEntryView: View {
     @Default(.birthday) private var birthday
     @Default(.lifeExpectancy) private var lifeExpectancy
 
-    @Environment(\.widgetFamily) var widgetFamily
-
     var body: some View {
         if profileSetupCompleted {
-            if #available(iOS 16, *), widgetFamily == .accessoryCircular {
-                AccessoryCircularWidgetView(life: life)
-            } else if widgetFamily == .systemSmall {
-                SystemSmallWidgetView(life: life)
-                    .padding()
-            } else if widgetFamily == .systemMedium {
-                SystemMediumWidgetView(life: life)
-            } else {
-                SystemLargeWidgetView(life: life)
-            }
+            YearProgressWidgetView(life: life)
         } else {
             VStack {
                 Text("Calendar not available")
@@ -33,6 +22,24 @@ struct YearProgressWidgetEntryView: View {
 
     private var life: Life {
         return Life(birthday: birthday, lifeExpectancy: lifeExpectancy)
+    }
+}
+
+struct YearProgressWidgetView: View {
+    var life: Life
+
+    @Environment(\.widgetFamily) var widgetFamily
+
+    var body: some View {
+        if #available(iOS 16, *), widgetFamily == .accessoryCircular {
+            AccessoryCircularWidgetView(life: life)
+        } else if widgetFamily == .systemSmall {
+            SystemSmallWidgetView(life: life)
+        } else if widgetFamily == .systemMedium {
+            SystemMediumWidgetView(life: life)
+        } else {
+            SystemLargeWidgetView(life: life)
+        }
     }
 }
 
@@ -94,6 +101,7 @@ private struct SystemSmallWidgetView: View {
                 .clipShape(ContainerRelativeShape())
                 .padding(.top, 8)
         }
+        .padding()
     }
 }
 
@@ -125,15 +133,14 @@ struct YearProgressWidgetEntryView_Previews: PreviewProvider {
         let life = Life.example
 
         Group {
-            SystemSmallWidgetView(life: life)
+            YearProgressWidgetView(life: life)
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
 
-            SystemMediumWidgetView(life: life)
+            YearProgressWidgetView(life: life)
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
 
-            SystemLargeWidgetView(life: life)
+            YearProgressWidgetView(life: life)
                 .previewContext(WidgetPreviewContext(family: .systemLarge))
         }
-        .padding()
     }
 }
