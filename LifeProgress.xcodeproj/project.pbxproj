@@ -15,10 +15,12 @@
 		840BC44328420D0100AC1CE8 /* LifeCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BC44228420D0100AC1CE8 /* LifeCalendarView.swift */; };
 		8414EC3D28522B20005EC901 /* SimplifiedLifeCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2C466285205760006F2B4 /* SimplifiedLifeCalendarView.swift */; };
 		84401998284B9C450090926D /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84401997284B9C450090926D /* HomeScreen.swift */; };
+		8449431F2A29840200A071FD /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449431E2A29840200A071FD /* Provider.swift */; };
+		844943232A29847400A071FD /* Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844943222A29847400A071FD /* Widgets.swift */; };
+		844943242A29851400A071FD /* YearCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D76C82A28534B0038C6A9 /* YearCalendarView.swift */; };
 		845556792844A5710062CD5F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845556782844A5710062CD5F /* Profile.swift */; };
 		847685BC2849EE8D0058A2F9 /* LifeProgressWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847685BB2849EE8D0058A2F9 /* LifeProgressWidgetEntryView.swift */; };
 		847D76CA2A2855600038C6A9 /* YearCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D76C82A28534B0038C6A9 /* YearCalendarView.swift */; };
-		847D76CB2A28921E0038C6A9 /* YearCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D76C82A28534B0038C6A9 /* YearCalendarView.swift */; };
 		848EEB5E2844A6BA00B5AD78 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 848EEB5D2844A6BA00B5AD78 /* Defaults */; };
 		8499BDAA2846520B005A31D5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8455565E28449DDB0062CD5F /* WidgetKit.framework */; };
 		8499BDAB2846520B005A31D5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8455566028449DDB0062CD5F /* SwiftUI.framework */; };
@@ -77,6 +79,8 @@
 		840BC44028420CE000AC1CE8 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		840BC44228420D0100AC1CE8 /* LifeCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCalendarView.swift; sourceTree = "<group>"; };
 		84401997284B9C450090926D /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		8449431E2A29840200A071FD /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		844943222A29847400A071FD /* Widgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widgets.swift; sourceTree = "<group>"; };
 		8455565E28449DDB0062CD5F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		8455566028449DDB0062CD5F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		845556762844A0540062CD5F /* LifeProgress.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LifeProgress.entitlements; sourceTree = "<group>"; };
@@ -135,6 +139,25 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		844943202A29844000A071FD /* LifeProgress */ = {
+			isa = PBXGroup;
+			children = (
+				847685BB2849EE8D0058A2F9 /* LifeProgressWidgetEntryView.swift */,
+				8499BDAD2846520B005A31D5 /* LifeProgressWidget.swift */,
+			);
+			path = LifeProgress;
+			sourceTree = "<group>";
+		};
+		844943212A29845200A071FD /* YearProgress */ = {
+			isa = PBXGroup;
+			children = (
+				840ABF7D2A28437200D6A335 /* YearProgressWidget.swift */,
+				840ABF7F2A28439E00D6A335 /* YearProgressWidgetEntryView.swift */,
+				847D76C82A28534B0038C6A9 /* YearCalendarView.swift */,
+			);
+			path = YearProgress;
+			sourceTree = "<group>";
+		};
 		8452B0E1284D9D1A0077FB1C /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,11 +186,10 @@
 			isa = PBXGroup;
 			children = (
 				8499BDB8284652A2005A31D5 /* LifeProgressWidgetExtension.entitlements */,
-				840ABF7D2A28437200D6A335 /* YearProgressWidget.swift */,
-				840ABF7F2A28439E00D6A335 /* YearProgressWidgetEntryView.swift */,
-				847D76C82A28534B0038C6A9 /* YearCalendarView.swift */,
-				8499BDAD2846520B005A31D5 /* LifeProgressWidget.swift */,
-				847685BB2849EE8D0058A2F9 /* LifeProgressWidgetEntryView.swift */,
+				844943212A29845200A071FD /* YearProgress */,
+				844943202A29844000A071FD /* LifeProgress */,
+				844943222A29847400A071FD /* Widgets.swift */,
+				8449431E2A29840200A071FD /* Provider.swift */,
 				8499BDAF2846520C005A31D5 /* Assets.xcassets */,
 				8499BDB12846520C005A31D5 /* Info.plist */,
 			);
@@ -345,6 +367,8 @@
 				8499BDAE2846520B005A31D5 /* LifeProgressWidget.swift in Sources */,
 				8414EC3D28522B20005EC901 /* SimplifiedLifeCalendarView.swift in Sources */,
 				840ABF802A28439E00D6A335 /* YearProgressWidgetEntryView.swift in Sources */,
+				844943232A29847400A071FD /* Widgets.swift in Sources */,
+				8449431F2A29840200A071FD /* Provider.swift in Sources */,
 				840ABF7E2A28437200D6A335 /* YearProgressWidget.swift in Sources */,
 				8499BDBA284652BE005A31D5 /* Profile.swift in Sources */,
 				847685BC2849EE8D0058A2F9 /* LifeProgressWidgetEntryView.swift in Sources */,
@@ -366,7 +390,7 @@
 				840BC44328420D0100AC1CE8 /* LifeCalendarView.swift in Sources */,
 				845556792844A5710062CD5F /* Profile.swift in Sources */,
 				84C2C46E285211B90006F2B4 /* ZoomedInCalendar.swift in Sources */,
-				847D76CB2A28921E0038C6A9 /* YearCalendarView.swift in Sources */,
+				844943242A29851400A071FD /* YearCalendarView.swift in Sources */,
 				84C2C4622852050E0006F2B4 /* AboutScreen.swift in Sources */,
 				840BC43D28420CA500AC1CE8 /* Life.swift in Sources */,
 				84B25468283BBDC200CD542E /* LifeProgressApp.swift in Sources */,

@@ -27,10 +27,3 @@ struct YearProgressWidget: Widget {
         return widgetFamilies
     }
 }
-
-struct YearProgressWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        YearProgressWidgetEntryView()
-            .previewContext(WidgetPreviewContext(family: .systemMedium))
-    }
-}
