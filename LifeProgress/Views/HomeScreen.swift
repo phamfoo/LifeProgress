@@ -93,7 +93,30 @@ private struct HomeView: View {
             }
 
             HStack {
-                Spacer()
+                VStack {
+                    Text("\(life.numberOfWeeksSpent)")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .foregroundColor(.primary)
+
+                    // TODO: Handle plurals properly
+                    Text("wks spent")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+                .frame(maxWidth: .infinity)
+
+                VStack {
+                    Text("\(life.numberOfWeeksLeft)")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .foregroundColor(.primary)
+
+                    Text("wks left")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+                .frame(maxWidth: .infinity)
 
                 VStack {
                     Text("\(life.numberOfWeeksTotal)")
@@ -105,34 +128,7 @@ private struct HomeView: View {
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
-
-                Spacer()
-
-                VStack {
-                    Text("\(life.numberOfWeeksSpent)")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .foregroundColor(.primary)
-
-                    Text("weeks spent")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
-
-                Spacer()
-
-                VStack {
-                    Text("\(life.numberOfWeeksLeft)")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .foregroundColor(.primary)
-
-                    Text("weeks left")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
-
-                Spacer()
+                .frame(maxWidth: .infinity)
             }
         }
     }
@@ -162,7 +158,7 @@ private struct HomeView: View {
                         .fontWeight(.bold)
                         .foregroundColor(.secondary)
 
-                    Text("weeks spent")
+                    Text("wks spent")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
@@ -175,7 +171,7 @@ private struct HomeView: View {
                         .fontWeight(.bold)
                         .foregroundColor(.primary)
 
-                    Text("until birthday")
+                    Text("wks left")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }

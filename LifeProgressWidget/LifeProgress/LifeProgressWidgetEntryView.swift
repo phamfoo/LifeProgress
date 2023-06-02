@@ -68,11 +68,11 @@ private struct SystemMediumWidgetView: View {
                     .font(.title)
                     .bold()
 
-                Text("**\(life.numberOfWeeksSpent)** weeks spent")
+                Text("**\(life.numberOfWeeksSpent)** wks spent")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
 
-                Text("**\(life.numberOfWeeksLeft)** weeks left")
+                Text("**\(life.numberOfWeeksLeft)** wks left")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
@@ -93,7 +93,7 @@ private struct SystemSmallWidgetView: View {
             Text("\(life.progressFormattedString)%")
                 .font(.headline)
 
-            Text("**\(life.numberOfWeeksLeft)** weeks left")
+            Text("**\(life.numberOfWeeksLeft)** wks left")
                 .font(.footnote)
                 .foregroundColor(.secondary)
 
@@ -115,7 +115,7 @@ private struct SystemLargeWidgetView: View {
                 .bold()
 
             Text(
-                "**\(life.numberOfWeeksSpent)** weeks spent • **\(life.numberOfWeeksLeft)** weeks left"
+                "**\(life.numberOfWeeksSpent)** wks spent • **\(life.numberOfWeeksLeft)** wks left"
             )
             .font(.subheadline)
             .foregroundColor(.secondary)
