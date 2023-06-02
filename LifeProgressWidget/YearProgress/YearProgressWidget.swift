@@ -21,7 +21,7 @@ struct YearProgressWidget: Widget {
         ]
 
         if #available(iOS 16, *) {
-            widgetFamilies.append(.accessoryCircular)
+            widgetFamilies += [.accessoryCircular, .accessoryRectangular]
         }
 
         return widgetFamilies

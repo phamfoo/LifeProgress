@@ -33,12 +33,40 @@ struct YearProgressWidgetView: View {
     var body: some View {
         if #available(iOS 16, *), widgetFamily == .accessoryCircular {
             AccessoryCircularWidgetView(life: life)
+        } else if #available(iOS 16, *), widgetFamily == .accessoryRectangular {
+            AccessoryRectangularWidgetView(life: life)
         } else if widgetFamily == .systemSmall {
             SystemSmallWidgetView(life: life)
         } else if widgetFamily == .systemMedium {
             SystemMediumWidgetView(life: life)
         } else {
             SystemLargeWidgetView(life: life)
+        }
+    }
+}
+
+@available(iOS 16, *)
+private struct AccessoryRectangularWidgetView: View {
+    var life: Life
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack(spacing: 4) {
+                Image(systemName: "square.grid.4x3.fill")
+
+                Text("Current Year")
+                    .font(.headline)
+            }
+
+            ProgressView(value: life.currentYearProgress) {
+                HStack {
+                    Text("\(life.currentYearProgressFormattedString)%")
+                        .font(.headline)
+                    Spacer()
+
+                    Text("\(life.currentYearRemainingWeeks) wks left")
+                }
+            }
         }
     }
 }
@@ -133,6 +161,18 @@ struct YearProgressWidgetEntryView_Previews: PreviewProvider {
         let life = Life.example
 
         Group {
+            if #available(iOS 16, *) {
+                YearProgressWidgetView(life: life)
+                    .previewContext(
+                        WidgetPreviewContext(family: .accessoryCircular)
+                    )
+
+                YearProgressWidgetView(life: life)
+                    .previewContext(
+                        WidgetPreviewContext(family: .accessoryRectangular)
+                    )
+            }
+
             YearProgressWidgetView(life: life)
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
 
