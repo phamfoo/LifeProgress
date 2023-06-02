@@ -38,12 +38,10 @@ struct LifeCalendarView: View {
             // except for the current year
             //
             // We're doing this because when switching from `life` to `year`
-            // mode,
-            // the cells from the current year should transition smoothly to
-            // a new grid layout.
+            // mode, the cells from the current year should transition smoothly
+            // to a new grid layout.
             // This is really easy with view transitions, I'm not sure if it's
-            // possible
-            // to do with canvas only.
+            // possible to do with canvas only.
             calendarWithoutCurrentYear
 
             // Draw the current year with views
@@ -95,8 +93,7 @@ struct LifeCalendarView: View {
                 .delay(
                     displayMode == .currentYear
                         ? 0.0
-                        : 0.3 +
-                        getAnimationDelay(weekIndex: Life.totalWeeksInAYear)
+                        : 0.3
                 ),
 
             value: displayMode
