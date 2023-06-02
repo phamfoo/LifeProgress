@@ -3,7 +3,6 @@ import Foundation
 
 struct Life {
     var lifeExpectancy: Int
-    var birthday: Date
 
     var age: Int
     var numberOfWeeksTotal: Int
@@ -14,7 +13,7 @@ struct Life {
         let calendar = Calendar.current
 
         self.lifeExpectancy = lifeExpectancy
-        self.birthday = calendar.startOfDay(for: birthday)
+        let birthday = calendar.startOfDay(for: birthday)
 
         let ageComponents = calendar.dateComponents(
             [.year, .weekOfYear],
