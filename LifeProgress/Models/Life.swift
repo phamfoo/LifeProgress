@@ -2,61 +2,85 @@ import Defaults
 import Foundation
 
 struct Life {
-    static let totalWeeksInAYear = 52
+    var lifeExpectancy: Int
+    var birthday: Date
 
     var age: Int
-    var weekOfYear: Int
-    var lifeExpectancy: Int
+    var numberOfWeeksTotal: Int
+    var numberOfWeeksSpent: Int
+    var currentYearNumberOfWeeksSpent: Int
 
     init(birthday: Date, lifeExpectancy: Int) {
         let calendar = Calendar.current
 
+        self.lifeExpectancy = lifeExpectancy
+        self.birthday = calendar.startOfDay(for: birthday)
+
         let ageComponents = calendar.dateComponents(
             [.year, .weekOfYear],
-            from: calendar.startOfDay(for: birthday),
+            from: birthday,
             to: .now
         )
-
         age = ageComponents.year!
-        weekOfYear = ageComponents.weekOfYear!
-        self.lifeExpectancy = lifeExpectancy
+        currentYearNumberOfWeeksSpent = ageComponents.weekOfYear!
+
+        let endOfLife = calendar.date(
+            byAdding: .year,
+            value: lifeExpectancy,
+            to: birthday
+        )!
+        numberOfWeeksTotal = calendar.dateComponents(
+            [.weekOfYear],
+            from: birthday,
+            to: endOfLife
+        ).weekOfYear!
+
+        numberOfWeeksSpent = calendar.dateComponents(
+            [.weekOfYear],
+            from: birthday,
+            to: .now
+        ).weekOfYear!
+    }
+}
+
+// MARK: - Life progress
+
+extension Life {
+    var numberOfWeeksLeft: Int {
+        numberOfWeeksTotal - numberOfWeeksSpent
     }
 
     var progress: Double {
-        let realAge = Double(age) + Double(weekOfYear) /
-            Double(Life.totalWeeksInAYear)
-        let progress = realAge /
-            Double(lifeExpectancy)
-
-        return progress
+        Double(numberOfWeeksSpent) / Double(numberOfWeeksTotal)
     }
 
     var progressFormattedString: String {
         String(format: "%.1f", progress * 100)
     }
+}
+
+// MARK: - Year progress
+
+extension Life {
+    static let numberOfWeeksInAYear = 52
+
+    var currentYearNumberOfWeeksLeft: Int {
+        Life.numberOfWeeksInAYear - currentYearNumberOfWeeksSpent
+    }
 
     var currentYearProgress: Double {
-        Double(weekOfYear) / Double(Life.totalWeeksInAYear)
+        Double(currentYearNumberOfWeeksSpent) /
+            Double(Life.numberOfWeeksInAYear)
     }
 
     var currentYearProgressFormattedString: String {
         String(format: "%.1f", currentYearProgress * 100)
     }
+}
 
-    var currentYearRemainingWeeks: Int {
-        Life.totalWeeksInAYear - weekOfYear
-    }
+// MARK: - Utils
 
-    var numberOfWeeksSpent: Int {
-        Life.totalWeeksInAYear * age + weekOfYear
-    }
-
-    // We could use the Calendar API to calculate an accurate value of this,
-    // but I want the value to match the amount of blank squares on the calendar
-    var numberOfWeeksLeft: Int {
-        Life.totalWeeksInAYear * lifeExpectancy - numberOfWeeksSpent
-    }
-
+extension Life {
     static func getDefaultBirthday() -> Date {
         let defaultUserAge = 22
         let defaultBirthday = Calendar.current.date(
@@ -72,7 +96,7 @@ struct Life {
         let birthday = Calendar.current.date(
             byAdding: .month, value: 4, to: getDefaultBirthday()
         ) ?? .now
-        
+
         let life = Life(
             birthday: birthday,
             lifeExpectancy: 72

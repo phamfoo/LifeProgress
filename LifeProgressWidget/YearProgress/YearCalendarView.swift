@@ -6,7 +6,7 @@ struct YearCalendarView: View {
     var body: some View {
         Canvas { context, size in
             let numberOfColumns = 8
-            let numberOfRows = Life.totalWeeksInAYear / numberOfColumns + 1
+            let numberOfRows = Life.numberOfWeeksInAYear / numberOfColumns + 1
             let cellWidth = size.width / Double(numberOfColumns)
             let cellHeight = size.height / Double(numberOfRows)
             let cellPadding = cellWidth / 32
@@ -24,7 +24,7 @@ struct YearCalendarView: View {
             context.concatenate(scaleTransform)
             context.concatenate(translateTransform)
 
-            for weekIndex in 0 ... Life.totalWeeksInAYear {
+            for weekIndex in 0 ... Life.numberOfWeeksInAYear {
                 let rowIndex = weekIndex / numberOfColumns
                 let columnIndex = weekIndex % numberOfColumns
 
@@ -38,7 +38,7 @@ struct YearCalendarView: View {
                         )
                     )
 
-                let fillColor = weekIndex < life.weekOfYear
+                let fillColor = weekIndex < life.currentYearNumberOfWeeksSpent
                     ? AgeGroup(age: life.age + 1).getColor()
                     : Color(uiColor: .systemFill)
 

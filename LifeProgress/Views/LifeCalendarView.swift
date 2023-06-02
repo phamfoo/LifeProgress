@@ -21,7 +21,7 @@ struct LifeCalendarView: View {
     }
 
     var content: some View {
-        let fullCalendarAspectRatio = Double(Life.totalWeeksInAYear) /
+        let fullCalendarAspectRatio = Double(Life.numberOfWeeksInAYear) /
             Double(life.lifeExpectancy)
 
         let currentYearGridAspectRatio = Double(
@@ -29,7 +29,7 @@ struct LifeCalendarView: View {
                 .currentYearModeColumnCount
         ) /
             (
-                Double(Life.totalWeeksInAYear) /
+                Double(Life.numberOfWeeksInAYear) /
                     Double(LifeCalendarView.currentYearModeColumnCount) + 1
             )
 
@@ -58,11 +58,11 @@ struct LifeCalendarView: View {
     private var calendarWithoutCurrentYear: some View {
         Canvas { context, size in
             let containerWidth = size.width
-            let cellSize = containerWidth / Double(Life.totalWeeksInAYear)
+            let cellSize = containerWidth / Double(Life.numberOfWeeksInAYear)
             let cellPadding = cellSize / 12
 
             for yearIndex in 0 ..< life.lifeExpectancy {
-                for weekIndex in 0 ..< Life.totalWeeksInAYear {
+                for weekIndex in 0 ..< Life.numberOfWeeksInAYear {
                     let cellPath =
                         Path(CGRect(
                             x: Double(weekIndex) * cellSize + cellPadding,
@@ -107,10 +107,10 @@ struct LifeCalendarView: View {
             let cellSize = displayMode == .currentYear ?
                 containerWidth /
                 Double(LifeCalendarView.currentYearModeColumnCount) :
-                containerWidth / Double(Life.totalWeeksInAYear)
+                containerWidth / Double(Life.numberOfWeeksInAYear)
             let cellPadding = cellSize / 12
 
-            ForEach(0 ..< Life.totalWeeksInAYear, id: \.self) { weekIndex in
+            ForEach(0 ..< Life.numberOfWeeksInAYear, id: \.self) { weekIndex in
                 let rowIndex = displayMode == .currentYear ?
                     weekIndex / LifeCalendarView.currentYearModeColumnCount :
                     life.age - 1
@@ -120,7 +120,7 @@ struct LifeCalendarView: View {
 
                 Rectangle()
                     .fill(
-                        weekIndex < life.weekOfYear ?
+                        weekIndex < life.currentYearNumberOfWeeksSpent ?
                             AgeGroup(age: life.age + 1).getColor() :
                             Color(uiColor: .systemFill)
                     )

@@ -96,7 +96,7 @@ private struct HomeView: View {
                 Spacer()
 
                 VStack {
-                    Text("\(Life.totalWeeksInAYear * life.lifeExpectancy)")
+                    Text("\(life.numberOfWeeksTotal)")
                         .font(.headline)
                         .fontWeight(.bold)
                         .foregroundColor(.primary)
@@ -153,10 +153,11 @@ private struct HomeView: View {
                 Spacer()
 
                 VStack {
-                    let weekOfYearText = Text("\(life.weekOfYear)")
-                        .foregroundColor(.primary)
+                    let weeksSpentText =
+                        Text("\(life.currentYearNumberOfWeeksSpent)")
+                            .foregroundColor(.primary)
 
-                    Text("\(weekOfYearText)/\(Life.totalWeeksInAYear)")
+                    Text("\(weeksSpentText)/\(Life.numberOfWeeksInAYear)")
                         .font(.headline)
                         .fontWeight(.bold)
                         .foregroundColor(.secondary)
@@ -169,7 +170,7 @@ private struct HomeView: View {
                 Spacer()
 
                 VStack {
-                    Text("\(life.currentYearRemainingWeeks)")
+                    Text("\(life.currentYearNumberOfWeeksLeft)")
                         .font(.headline)
                         .fontWeight(.bold)
                         .foregroundColor(.primary)
