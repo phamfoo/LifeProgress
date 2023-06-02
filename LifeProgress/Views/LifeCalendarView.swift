@@ -114,9 +114,6 @@ struct LifeCalendarView: View {
             let cellPadding = cellSize / 12
 
             ForEach(0 ..< Life.totalWeeksInAYear, id: \.self) { weekIndex in
-                // TODO: Maybe instead of doing it this way, I could just lay things out normally
-                // and use matchedGeometryEffect and let SwiftUI do its "magic
-                // move" thing
                 let rowIndex = displayMode == .currentYear ?
                     weekIndex / LifeCalendarView.currentYearModeColumnCount :
                     life.age - 1

@@ -1,6 +1,5 @@
 import SwiftUI
 
-// TODO: See if it makes sense to make this reusable
 struct CurrentYearProgressView: View {
     var life: Life
 
