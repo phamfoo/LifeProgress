@@ -20,7 +20,7 @@ struct YearProgressWidget: Widget {
             .systemLarge,
         ]
 
-        if #available(iOS 16, *) {
+        if #available(iOSApplicationExtension 16.0, *) {
             widgetFamilies += [.accessoryCircular, .accessoryRectangular]
         }
 

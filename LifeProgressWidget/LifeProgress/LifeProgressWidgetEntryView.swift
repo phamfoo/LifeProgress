@@ -31,7 +31,9 @@ struct LifeProgressWidgetView: View {
     @Environment(\.widgetFamily) var widgetFamily
 
     var body: some View {
-        if #available(iOS 16, *), widgetFamily == .accessoryCircular {
+        if #available(iOSApplicationExtension 16.0, *),
+           widgetFamily == .accessoryCircular
+        {
             AccessoryCircularWidgetView(life: life)
         } else if widgetFamily == .systemSmall {
             SystemSmallWidgetView(life: life)
@@ -43,7 +45,7 @@ struct LifeProgressWidgetView: View {
     }
 }
 
-@available(iOS 16, *)
+@available(iOSApplicationExtension 16.0, *)
 private struct AccessoryCircularWidgetView: View {
     var life: Life
 
