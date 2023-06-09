@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>**%lld** wk(s) spent</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@wks@</string>
+            <key>wks</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>lld</string>
+                <key>one</key>
+                <string>%lld wk spent</string>
+                <key>other</key>
+                <string>%lld wks spent</string>
+            </dict>
+        </dict>
+        
+        <key>**%lld** wk(s) left</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@wks@</string>
+            <key>wks</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>lld</string>
+                <key>one</key>
+                <string>%lld wk left</string>
+                <key>other</key>
+                <string>%lld wks left</string>
+            </dict>
+        </dict>
+    </dict>
+</plist>

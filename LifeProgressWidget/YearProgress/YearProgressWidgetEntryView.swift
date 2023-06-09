@@ -68,7 +68,7 @@ private struct AccessoryRectangularWidgetView: View {
                         .font(.headline)
                     Spacer()
 
-                    Text("\(life.currentYearNumberOfWeeksLeft) wks left")
+                    Text("**\(life.currentYearNumberOfWeeksLeft)** wk(s) left")
                 }
             }
         }
@@ -100,11 +100,11 @@ private struct SystemMediumWidgetView: View {
                     .font(.title)
                     .bold()
 
-                Text("**\(life.currentYearNumberOfWeeksSpent)** wks spent")
+                Text("**\(life.currentYearNumberOfWeeksSpent)** wk(s) spent")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
 
-                Text("**\(life.currentYearNumberOfWeeksLeft)** wks left")
+                Text("**\(life.currentYearNumberOfWeeksLeft)** wk(s) left")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
@@ -125,7 +125,7 @@ private struct SystemSmallWidgetView: View {
             Text("\(life.currentYearProgressFormattedString)%")
                 .font(.headline)
 
-            Text("**\(life.currentYearNumberOfWeeksLeft)** wks left")
+            Text("**\(life.currentYearNumberOfWeeksLeft)** wk(s) left")
                 .font(.footnote)
                 .foregroundColor(.secondary)
 
@@ -146,8 +146,13 @@ private struct SystemLargeWidgetView: View {
                 .font(.title)
                 .bold()
 
+            let weeksSpentText =
+                Text("**\(life.currentYearNumberOfWeeksSpent)** wk(s) spent")
+            let weeksLeftText =
+                Text("**\(life.currentYearNumberOfWeeksLeft)** wk(s) left")
+
             Text(
-                "**\(life.currentYearNumberOfWeeksSpent)** wks spent • **\(life.currentYearNumberOfWeeksLeft)** wks left"
+                "\(weeksSpentText) • \(weeksLeftText)"
             )
             .font(.subheadline)
             .foregroundColor(.secondary)

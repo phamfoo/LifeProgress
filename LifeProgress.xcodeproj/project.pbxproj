@@ -31,6 +31,8 @@
 		8499BDBA284652BE005A31D5 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845556782844A5710062CD5F /* Profile.swift */; };
 		8499BDBF28465352005A31D5 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 8499BDBE28465352005A31D5 /* Defaults */; };
 		84A0235B2847A915007770ED /* AgeGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0235A2847A915007770ED /* AgeGroup.swift */; };
+		84A436D02A32D7C400F43610 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 84A436D22A32D7C400F43610 /* Localizable.stringsdict */; };
+		84A436D32A32D7C500F43610 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 84A436D22A32D7C400F43610 /* Localizable.stringsdict */; };
 		84A9314A284857BF00BE1D0D /* AgeGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0235A2847A915007770ED /* AgeGroup.swift */; };
 		84B25468283BBDC200CD542E /* LifeProgressApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B25467283BBDC200CD542E /* LifeProgressApp.swift */; };
 		84B2546A283BBDC200CD542E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B25469283BBDC200CD542E /* ContentView.swift */; };
@@ -93,6 +95,7 @@
 		8499BDB12846520C005A31D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8499BDB8284652A2005A31D5 /* LifeProgressWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LifeProgressWidgetExtension.entitlements; sourceTree = "<group>"; };
 		84A0235A2847A915007770ED /* AgeGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeGroup.swift; sourceTree = "<group>"; };
+		84A436D12A32D7C400F43610 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		84B25464283BBDC200CD542E /* LifeProgress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeProgress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B25467283BBDC200CD542E /* LifeProgressApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeProgressApp.swift; sourceTree = "<group>"; };
 		84B25469283BBDC200CD542E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -225,6 +228,7 @@
 				84B2546D283BBDC300CD542E /* Preview Content */,
 				84F1E90C284DA9A4009F912B /* InfoPlist.strings */,
 				845556762844A0540062CD5F /* LifeProgress.entitlements */,
+				84A436D22A32D7C400F43610 /* Localizable.stringsdict */,
 			);
 			path = LifeProgress;
 			sourceTree = "<group>";
@@ -340,6 +344,7 @@
 			files = (
 				8499BDB02846520C005A31D5 /* Assets.xcassets in Resources */,
 				84F1E90E284DA9D0009F912B /* InfoPlist.strings in Resources */,
+				84A436D32A32D7C500F43610 /* Localizable.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B2546F283BBDC300CD542E /* Preview Assets.xcassets in Resources */,
+				84A436D02A32D7C400F43610 /* Localizable.stringsdict in Resources */,
 				84F1E90D284DA9A4009F912B /* InfoPlist.strings in Resources */,
 				84B2546C283BBDC300CD542E /* Assets.xcassets in Resources */,
 			);
@@ -406,6 +412,17 @@
 			targetProxy = 8499BDB22846520C005A31D5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		84A436D22A32D7C400F43610 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84A436D12A32D7C400F43610 /* en */,
+			);
+			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8499BDB52846520C005A31D5 /* Debug */ = {

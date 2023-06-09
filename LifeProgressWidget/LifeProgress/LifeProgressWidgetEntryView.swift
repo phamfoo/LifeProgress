@@ -70,11 +70,11 @@ private struct SystemMediumWidgetView: View {
                     .font(.title)
                     .bold()
 
-                Text("**\(life.numberOfWeeksSpent)** wks spent")
+                Text("**\(life.numberOfWeeksSpent)** wk(s) spent")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
 
-                Text("**\(life.numberOfWeeksLeft)** wks left")
+                Text("**\(life.numberOfWeeksLeft)** wk(s) left")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
@@ -95,7 +95,7 @@ private struct SystemSmallWidgetView: View {
             Text("\(life.progressFormattedString)%")
                 .font(.headline)
 
-            Text("**\(life.numberOfWeeksLeft)** wks left")
+            Text("**\(life.numberOfWeeksLeft)** wk(s) left")
                 .font(.footnote)
                 .foregroundColor(.secondary)
 
@@ -116,11 +116,13 @@ private struct SystemLargeWidgetView: View {
                 .font(.title)
                 .bold()
 
-            Text(
-                "**\(life.numberOfWeeksSpent)** wks spent • **\(life.numberOfWeeksLeft)** wks left"
-            )
-            .font(.subheadline)
-            .foregroundColor(.secondary)
+            let weeksSpentText =
+                Text("**\(life.numberOfWeeksSpent)** wk(s) spent")
+            let weeksLeftText = Text("**\(life.numberOfWeeksLeft)** wk(s) left")
+
+            Text("\(weeksSpentText) • \(weeksLeftText)")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
 
             SimplifiedLifeCalendarView(life: life)
                 .clipShape(ContainerRelativeShape())

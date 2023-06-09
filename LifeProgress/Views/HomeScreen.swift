@@ -99,8 +99,7 @@ private struct HomeView: View {
                         .fontWeight(.bold)
                         .foregroundColor(.primary)
 
-                    // TODO: Handle plurals properly
-                    Text("wks spent")
+                    Text(weeksSpentLabel(for: life.numberOfWeeksSpent))
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
@@ -112,7 +111,7 @@ private struct HomeView: View {
                         .fontWeight(.bold)
                         .foregroundColor(.primary)
 
-                    Text("wks left")
+                    Text(weeksLeftLabel(for: life.numberOfWeeksLeft))
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
@@ -158,9 +157,12 @@ private struct HomeView: View {
                         .fontWeight(.bold)
                         .foregroundColor(.secondary)
 
-                    Text("wks spent")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+                    Text(weeksSpentLabel(
+                        for: life
+                            .currentYearNumberOfWeeksSpent
+                    ))
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
                 }
 
                 Spacer()
@@ -171,7 +173,7 @@ private struct HomeView: View {
                         .fontWeight(.bold)
                         .foregroundColor(.primary)
 
-                    Text("wks left")
+                    Text(weeksLeftLabel(for: life.currentYearNumberOfWeeksLeft))
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
@@ -194,6 +196,18 @@ private struct HomeView: View {
                 removal: .move(edge: oppositeEdge)
             )
         }
+    }
+
+    private func weeksSpentLabel(for numberOfWeeks: Int) -> String {
+        numberOfWeeks == 1
+            ? "wk spent"
+            : "wks spent"
+    }
+
+    private func weeksLeftLabel(for numberOfWeeks: Int) -> String {
+        numberOfWeeks == 1
+            ? "wk left"
+            : "wks left"
     }
 }
 
