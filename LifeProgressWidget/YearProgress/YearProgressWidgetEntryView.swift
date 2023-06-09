@@ -55,12 +55,8 @@ private struct AccessoryRectangularWidgetView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            HStack(spacing: 4) {
-                Image(systemName: "square.grid.4x3.fill")
-
-                Text("Current Year")
-                    .font(.headline)
-            }
+            Text(currentYearTitle)
+                .font(.headline)
 
             ProgressView(value: life.currentYearProgress) {
                 HStack {
@@ -72,6 +68,14 @@ private struct AccessoryRectangularWidgetView: View {
                 }
             }
         }
+    }
+
+    private var currentYearTitle: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .ordinal
+        let currentYear = life.age + 1
+
+        return "Your \(formatter.string(from: currentYear as NSNumber)!) Year"
     }
 }
 

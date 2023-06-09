@@ -135,7 +135,7 @@ private struct HomeView: View {
     private var yearProgressInfo: some View {
         VStack(spacing: 16) {
             VStack {
-                Text("Current Year Progress")
+                Text(currentYearTitle)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
 
@@ -208,6 +208,14 @@ private struct HomeView: View {
         numberOfWeeks == 1
             ? "wk left"
             : "wks left"
+    }
+
+    private var currentYearTitle: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .ordinal
+        let currentYear = life.age + 1
+
+        return "Your \(formatter.string(from: currentYear as NSNumber)!) Year"
     }
 }
 
