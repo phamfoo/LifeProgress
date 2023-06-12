@@ -24,7 +24,7 @@ struct YearCalendarView: View {
             context.concatenate(scaleTransform)
             context.concatenate(translateTransform)
 
-            for weekIndex in 0 ... Life.numberOfWeeksInAYear {
+            for weekIndex in 0 ..< Life.numberOfWeeksInAYear {
                 let rowIndex = weekIndex / numberOfColumns
                 let columnIndex = weekIndex % numberOfColumns
 
