@@ -71,7 +71,7 @@ struct AboutScreen: View {
 
                 Link("Check out the code on GitHub",
                      destination: URL(
-                         string: "https://github.com/tienphaw/LifeProgress"
+                         string: "https://github.com/phamfoo/LifeProgress"
                      )!)
             }
         }
