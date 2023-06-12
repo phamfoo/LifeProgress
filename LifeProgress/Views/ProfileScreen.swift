@@ -23,9 +23,7 @@ struct ProfileScreen: View {
 
                         Picker("Life Expectancy", selection: $lifeExpectancy) {
                             ForEach(
-                                minimumLifeExpectancy ..<
-                                    minimumLifeExpectancy +
-                                    128,
+                                minimumLifeExpectancy ... 128,
                                 id: \.self
                             ) { age in
                                 Text("\(age) years").tag(age)
