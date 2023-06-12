@@ -11,7 +11,11 @@ struct ProfileScreen: View {
     var body: some View {
         NavigationView {
             List {
-                DatePicker(selection: $birthday, displayedComponents: .date) {
+                DatePicker(
+                    selection: $birthday,
+                    in: ...Date.now,
+                    displayedComponents: .date
+                ) {
                     Text("Your Birthday")
                         .font(.headline)
                 }
