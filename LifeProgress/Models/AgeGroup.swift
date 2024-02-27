@@ -28,3 +28,24 @@ enum AgeGroup: Int, CaseIterable {
         }
     }
 }
+
+extension AgeGroup {
+    var description: String {
+        switch self {
+        case .baby:
+            return "Baby"
+        case .child:
+            return "Child"
+        case .adolescent:
+            return "Adolescent"
+        case .youngAdult:
+            return "Young Adult"
+        case .adult:
+            return "Adult"
+        case .middleAge:
+            return "Middle Age"
+        case .oldAge:
+            return "Old Age"
+        }
+    }
+}

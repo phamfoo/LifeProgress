@@ -115,6 +115,28 @@ struct AboutScreen: View {
             }
 
             VStack(alignment: .leading) {
+                Text(
+                    "The colors"
+                )
+                .font(.headline)
+
+                Text(
+                    "Each week in the past are colored based on how old you were in that week."
+                )
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+
+                ForEach(AgeGroup.allCases, id: \.self) { ageGroup in
+                    HStack {
+                        ageGroup.getColor()
+                            .frame(width: 18, height: 18)
+
+                        Text(ageGroup.description)
+                    }
+                }
+            }
+
+            VStack(alignment: .leading) {
                 Text("Last thing!")
                     .font(.headline)
 
