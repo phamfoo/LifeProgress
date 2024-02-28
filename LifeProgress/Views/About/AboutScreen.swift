@@ -121,7 +121,7 @@ struct AboutScreen: View {
                 .font(.headline)
 
                 Text(
-                    "Each week in the past are colored based on how old you were in that week."
+                    "Each week in the past is colored based on how old you were in that week."
                 )
                 .font(.subheadline)
                 .foregroundColor(.secondary)
