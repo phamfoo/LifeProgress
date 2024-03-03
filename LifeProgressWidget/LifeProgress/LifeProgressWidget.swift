@@ -11,6 +11,7 @@ struct LifeProgressWidget: Widget {
         .configurationDisplayName("Life Progress")
         .description("Friendly reminder that you're not gonna live forever.")
         .supportedFamilies(supportedFamilies)
+        .contentMarginsDisabled()
     }
 
     private var supportedFamilies: [WidgetFamily] {
