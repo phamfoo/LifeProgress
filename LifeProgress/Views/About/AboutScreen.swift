@@ -19,11 +19,6 @@ struct AboutScreen: View {
                             .fixedSize(horizontal: false, vertical: true)
                             .padding(.vertical)
                     }
-
-                    Section("Sponsor") {
-                        sponsor
-                            .padding(.vertical)
-                    }
                 }
             }
             .navigationTitle("About Life Progress")
@@ -145,28 +140,6 @@ struct AboutScreen: View {
                 )
                 .font(.subheadline)
                 .foregroundColor(.secondary)
-            }
-        }
-    }
-
-    private var sponsor: some View {
-        VStack {
-            HStack(spacing: 14) {
-                Image("PneumaLogo")
-                    .resizable()
-                    .renderingMode(.template)
-                    .foregroundColor(.primary)
-                    .frame(width: 49, height: 45)
-
-                VStack(alignment: .leading) {
-                    Text("Pneuma Media")
-                        .font(.headline)
-
-                    Link("pneumallc.co",
-                         destination: URL(
-                             string: "https://www.pneumallc.co"
-                         )!)
-                }
             }
         }
     }
