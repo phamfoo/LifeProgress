@@ -7,7 +7,7 @@ struct OnboardingScreen: View {
         VStack(alignment: .leading) {
             Spacer()
 
-            Image("RoundedIcon")
+            Image(.roundedIcon)
 
             VStack(alignment: .leading, spacing: 0) {
                 Text("Welcome to")
